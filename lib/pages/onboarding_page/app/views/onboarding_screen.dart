@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:medical_test_app/commons/components/buttons/app/floating_button__widget.dart';
+import 'package:medical_test_app/commons/components/buttons/app/solid_button_widget.dart';
 import 'package:medical_test_app/commons/constants/app_colors.dart';
 import 'package:medical_test_app/commons/constants/app_icons.dart';
 import 'package:medical_test_app/commons/constants/app_images.dart';
@@ -88,11 +90,16 @@ class OnboardingScreenState extends State<OnboardingScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    OnboardingButton(
+                    FloatingButton(
                       onPressed: _previousPage,
+                      iconPath: AppIcons.angleSmallRight,
+                      backgroundColor: _currentPage == 0
+                          ? AppColors.lightTeal
+                          : AppColors.teal,
+                      iconColor: AppColors.white,
                       isRotated: true,
                       isDisabled: _currentPage == 0,
-                      size: buttonSize,
+                      buttonSize: buttonSize,
                       iconSize: iconSize,
                     ),
                     PageIndicator(
@@ -100,11 +107,13 @@ class OnboardingScreenState extends State<OnboardingScreen> {
                       currentPage: _currentPage,
                       size: indicatorSize,
                     ),
-                    OnboardingButton(
+                    FloatingButton(
                       onPressed: _nextPage,
-                      isRotated: false,
+                      iconPath: AppIcons.angleSmallRight,
+                      backgroundColor: AppColors.teal,
+                      iconColor: AppColors.white,
                       isDisabled: false,
-                      size: buttonSize,
+                      buttonSize: buttonSize,
                       iconSize: iconSize,
                     ),
                   ],
@@ -113,48 +122,6 @@ class OnboardingScreenState extends State<OnboardingScreen> {
             ],
           );
         },
-      ),
-    );
-  }
-}
-
-/// Onboarding navigation button (Next/Previous)
-class OnboardingButton extends StatelessWidget {
-  final VoidCallback onPressed;
-  final bool isRotated;
-  final bool isDisabled;
-  final double size;
-  final double iconSize;
-
-  const OnboardingButton({
-    super.key,
-    required this.onPressed,
-    required this.isRotated,
-    required this.isDisabled,
-    required this.size,
-    required this.iconSize,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: isDisabled ? null : onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: isDisabled ? AppColors.lightTeal : AppColors.teal,
-        shape: const CircleBorder(),
-        padding: EdgeInsets.all(size * 0.3),
-      ),
-      child: Transform.rotate(
-        angle: isRotated ? 3.1416 : 0,
-        child: SvgPicture.asset(
-          AppIcons.angleSmallRight,
-          height: iconSize,
-          width: iconSize,
-          colorFilter: const ColorFilter.mode(
-            AppColors.white,
-            BlendMode.srcIn,
-          ),
-        ),
       ),
     );
   }

@@ -8,4 +8,5 @@ class AppImages {
   static const String saleOffer = 'assets/images/sale_offer.png';
   static const String splashScreen = 'assets/images/splash_screen.png';
   static const String test1 = 'assets/images/test_1.png';
+  static const String flag = 'assets/images/flag_1.png';
 }

@@ -32,21 +32,6 @@ class SplashScreenState extends State<SplashScreen> {
             AppImages.splashScreen,
             fit: BoxFit.cover,
           ),
-          Positioned.fill(
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
-              child: Container(
-                color: Colors.black.withOpacity(0.5),
-              ),
-            ),
-          ),
-          const Center(
-            child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(
-                AppColors.teal,
-              ),
-            ),
-          ),
         ],
       ),
     );
