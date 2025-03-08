@@ -93,7 +93,7 @@ class TestPackageCard extends StatelessWidget {
             height: 32,
             child: SolidButtonWidget(
               label: "Book Now",
-              onPressed: () {},
+              onPressed: onBookNow,
               isCircle: true,
             ),
           )

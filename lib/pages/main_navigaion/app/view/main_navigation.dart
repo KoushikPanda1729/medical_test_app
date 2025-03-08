@@ -29,6 +29,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
       backgroundColor: Colors.white,
       body: Column(
         children: [
+          // NavBar is removed from here
           Expanded(
             child: PageView(
               controller: _pageController,

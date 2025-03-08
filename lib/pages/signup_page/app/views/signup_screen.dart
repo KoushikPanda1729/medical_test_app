@@ -178,31 +178,3 @@ class SignupScreenState extends State<SignupScreen> {
     );
   }
 }
-
-
-
-      // NavBar(
-      //         leadingIcon: FloatingButton(
-      //           onPressed: () {
-      //             context.pop();
-      //           },
-      //           iconPath: AppIcons.angleSmallRight,
-      //           backgroundColor: AppColors.white,
-      //           iconColor: AppColors.black,
-      //           isDisabled: false,
-      //           buttonSize: 42,
-      //           iconSize: 20,
-      //           isRotated: true,
-      //         ),
-      //         trailingIcon: FloatingButton(
-      //           onPressed: () {
-      //             context.pop();
-      //           },
-      //           iconPath: AppIcons.shoppingCart,
-      //           backgroundColor: AppColors.white,
-      //           iconColor: AppColors.black,
-      //           isDisabled: false,
-      //           buttonSize: 42,
-      //           iconSize: 20,
-      //         ),
-      //       ),

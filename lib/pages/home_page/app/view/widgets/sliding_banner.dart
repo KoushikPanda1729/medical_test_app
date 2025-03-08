@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:medical_test_app/commons/constants/app_colors.dart';
 import 'package:medical_test_app/commons/constants/app_images.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -29,21 +30,23 @@ class _SlidingBannerState extends State<SlidingBanner> {
           child: PageView.builder(
             controller: pageController,
             itemCount: banners.length,
-            onPageChanged: (index) {
-              setState(() {});
-            },
             itemBuilder: (context, index) {
-              return Container(
-                margin: const EdgeInsets.symmetric(horizontal: 16),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Image.asset(
-                    banners[index],
-                    fit: BoxFit.cover,
-                    width: double.infinity,
+              return GestureDetector(
+                onTap: () {
+                  GoRouter.of(context).push('/booking_details');
+                },
+                child: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 16),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Image.asset(
+                      banners[index],
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                    ),
                   ),
                 ),
               );
