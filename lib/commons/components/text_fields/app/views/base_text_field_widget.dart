@@ -110,6 +110,9 @@ abstract class BaseTextfieldWidgetState<T extends BaseTextfieldWidget>
             vertical: 12.0,
             horizontal: 16.0,
           ),
+          labelStyle: TextStyle(
+            color: AppColors.black.withOpacity(0.5),
+          ),
           hintText: widget.hintText,
           hintStyle: TextStyle(
             color: Colors.grey.withOpacity(0.5),
