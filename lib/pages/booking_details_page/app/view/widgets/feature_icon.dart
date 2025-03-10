@@ -1,0 +1,57 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:medical_test_app/commons/constants/app_colors.dart';
+
+class FeatureIconCard extends StatelessWidget {
+  final String text;
+  final String icon;
+
+  const FeatureIconCard({
+    super.key,
+    required this.text,
+    required this.icon,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 108,
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 22),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 6,
+            spreadRadius: 2,
+            offset: const Offset(0, 0),
+          ),
+        ],
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SvgPicture.asset(
+            icon,
+            width: 51,
+            height: 51,
+            colorFilter:
+                const ColorFilter.mode(AppColors.teal, BlendMode.srcIn),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            text,
+            textAlign: TextAlign.center,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(
+              fontSize: 12,
+              height: 1,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
