@@ -11,6 +11,7 @@ class AlphaNumericTextfieldWidget extends BaseTextfieldWidget {
   final String? leadingIconPath;
   final double? leadingIconSize;
   final String? trailingIconPath;
+  final bool borderNone;
 
   const AlphaNumericTextfieldWidget({
     super.key,
@@ -25,7 +26,8 @@ class AlphaNumericTextfieldWidget extends BaseTextfieldWidget {
     super.focusNode,
     required super.onTextChanged,
     super.labelText,
-  });
+    this.borderNone = false,
+  }) : super(borderNone: borderNone);
 
   @override
   AlphaNumericTextfieldWidgetState createState() =>

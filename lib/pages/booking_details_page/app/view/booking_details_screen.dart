@@ -145,7 +145,9 @@ class BookingDetailsScreen extends StatelessWidget {
                 Expanded(
                     child: SolidButtonWidget(
                   label: "Book Now",
-                  onPressed: () {},
+                  onPressed: () {
+                    context.push("/checkout_summary");
+                  },
                   backgroundColor: AppColors.teal,
                   isCircle: true,
                 )),
