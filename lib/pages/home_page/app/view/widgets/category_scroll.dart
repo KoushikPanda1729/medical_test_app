@@ -53,7 +53,7 @@ class CategoryScroll extends StatelessWidget {
                   icon: category["icon"]!,
                   text: category["text"]!,
                   onPress: () {
-                    print("${category['text']} card clicked!");
+                    // print("${category['text']} card clicked!");
                   },
                 );
               }).toList(),

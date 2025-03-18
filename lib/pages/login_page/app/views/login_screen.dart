@@ -5,7 +5,6 @@ import 'package:medical_test_app/commons/components/text_fields/app/views/dropdo
 import 'package:medical_test_app/commons/components/text_fields/app/views/numeric_text_field_widget.dart';
 import 'package:medical_test_app/commons/constants/app_colors.dart';
 import 'package:medical_test_app/commons/constants/app_images.dart';
-import 'package:medical_test_app/commons/router/app_router.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

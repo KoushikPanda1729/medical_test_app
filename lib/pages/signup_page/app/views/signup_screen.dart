@@ -9,7 +9,6 @@ import 'package:medical_test_app/commons/components/text_fields/app/views/alphab
 import 'package:medical_test_app/commons/components/text_fields/app/views/email_text_field_widget.dart';
 import 'package:medical_test_app/commons/constants/app_colors.dart';
 import 'package:medical_test_app/commons/constants/app_icons.dart';
-import 'package:medical_test_app/commons/router/app_router.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});

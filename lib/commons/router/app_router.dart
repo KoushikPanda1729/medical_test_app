@@ -78,11 +78,11 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: '/add_schedule',
-      builder: (context, state) => SelectDateTimeAddressScreen(),
+      builder: (context, state) => const SelectDateTimeAddressScreen(),
     ),
     GoRoute(
       path: '/make_payment',
-      builder: (context, state) => MakePayment(),
+      builder: (context, state) => const MakePayment(),
     ),
     GoRoute(
       path: '/payment_success',

@@ -137,7 +137,9 @@ class BookingDetailsScreen extends StatelessWidget {
                 Expanded(
                     child: SolidButtonWidget(
                   label: "Add to Cart",
-                  onPressed: () {},
+                  onPressed: () {
+                    context.push("/checkout_summary");
+                  },
                   backgroundColor: AppColors.orange,
                   isCircle: true,
                 )),
@@ -146,7 +148,7 @@ class BookingDetailsScreen extends StatelessWidget {
                     child: SolidButtonWidget(
                   label: "Book Now",
                   onPressed: () {
-                    context.push("/checkout_summary");
+                    context.push("/add_member");
                   },
                   backgroundColor: AppColors.teal,
                   isCircle: true,

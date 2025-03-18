@@ -42,7 +42,10 @@ class MedicalServicesCard extends StatelessWidget {
             iconPath,
             height: 24,
             width: 24,
-            color: AppColors.black.withOpacity(0.5),
+            colorFilter: ColorFilter.mode(
+              AppColors.black.withOpacity(0.5),
+              BlendMode.srcIn,
+            ),
           ),
         ],
       ),

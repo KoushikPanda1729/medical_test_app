@@ -102,7 +102,7 @@ class AccountScreen extends StatelessWidget {
 }
 
 class ProfileAvatar extends StatelessWidget {
-  const ProfileAvatar({Key? key}) : super(key: key);
+  const ProfileAvatar({super.key});
 
   @override
   Widget build(BuildContext context) {
