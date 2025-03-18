@@ -168,15 +168,15 @@ class TextfieldDropdown<T> extends StatelessWidget {
           ),
           decoration: InputDecoration(
             isCollapsed: true,
-            contentPadding: const EdgeInsetsDirectional.symmetric(
-              horizontal: 4.0,
+            contentPadding: const EdgeInsetsDirectional.all(
+              10.0,
             ),
             hintText: hintText,
             hintStyle: const TextStyle(
               fontSize: 14,
               height: 1.8,
               fontWeight: FontWeight.w500,
-              color: Colors.black,
+              color: Color(0xFF727272),
             ),
             border: borderNone
                 ? InputBorder.none
@@ -185,7 +185,7 @@ class TextfieldDropdown<T> extends StatelessWidget {
                         ? BorderRadius.circular(30.0)
                         : BorderRadius.circular(8.0),
                     borderSide: const BorderSide(
-                      color: Colors.black,
+                      color: Color(0xFFD1EDEB),
                       width: 1.0,
                     ),
                   ),
@@ -196,7 +196,7 @@ class TextfieldDropdown<T> extends StatelessWidget {
                         ? BorderRadius.circular(30.0)
                         : BorderRadius.circular(8.0),
                     borderSide: const BorderSide(
-                      color: Colors.black,
+                      color: Color(0xFFD1EDEB),
                       width: 1.0,
                     ),
                   ),

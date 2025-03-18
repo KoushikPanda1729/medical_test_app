@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:medical_test_app/commons/components/buttons/app/floating_button__widget.dart';
 import 'package:medical_test_app/commons/constants/app_colors.dart';
 import 'package:medical_test_app/commons/constants/app_icons.dart';
+import 'package:medical_test_app/commons/router/app_router.dart';
 
 class NavBar extends StatelessWidget {
   final Widget? leadingIcon;
@@ -55,7 +57,9 @@ class NavBar extends StatelessWidget {
                         iconSize: 18,
                       ),
                       FloatingButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.push("/book-test");
+                        },
                         iconPath: AppIcons.search,
                         backgroundColor: AppColors.white,
                         iconColor: AppColors.teal,

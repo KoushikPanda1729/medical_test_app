@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:medical_test_app/pages/account_page/app/view/account_screen.dart';
+import 'package:medical_test_app/pages/book_test_page/app/views/book_test.dart';
 import 'package:medical_test_app/pages/booking_details_page/app/view/booking_details_screen.dart';
 import 'package:medical_test_app/pages/call_page/app/view/call_screen.dart';
 import 'package:medical_test_app/pages/checkout_page/app/view/checkout_summary.dart';
@@ -87,6 +88,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/payment_success',
       builder: (context, state) => const PaymentSuccessfulScreen(),
+    ),
+    GoRoute(
+      path: '/book-test',
+      builder: (context, state) => const TestPackageScreen(),
     ),
   ],
 );
