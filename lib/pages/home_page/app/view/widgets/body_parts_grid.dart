@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:medical_test_app/commons/constants/app_colors.dart';
 import 'package:medical_test_app/commons/constants/app_images.dart';
 import 'package:medical_test_app/commons/components/health_condition_card/app/view/health_condition_card.dart';
@@ -14,9 +15,11 @@ class BodyPartsGrid extends StatelessWidget {
       {"icon": AppImages.diabetes, "text": "Liver"},
       {"icon": AppImages.diabetes, "text": "Thyroid"},
       {"icon": AppImages.diabetes, "text": "Bladder"},
+      {"icon": AppImages.diabetes, "text": "Lung"},
     ];
 
     return Container(
+      width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,7 +56,7 @@ class BodyPartsGrid extends StatelessWidget {
                   icon: category["icon"]!,
                   text: category["text"]!,
                   onPress: () {
-                    print("${category['text']} card clicked!");
+                    context.push("/test-body-part");
                   },
                 );
               }).toList(),

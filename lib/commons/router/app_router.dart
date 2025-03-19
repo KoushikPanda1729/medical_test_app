@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:medical_test_app/pages/account_page/app/view/account_screen.dart';
+import 'package:medical_test_app/pages/book_test_page/app/views/book_radiology.dart';
 import 'package:medical_test_app/pages/book_test_page/app/views/book_test.dart';
 import 'package:medical_test_app/pages/booking_details_page/app/view/booking_details_screen.dart';
 import 'package:medical_test_app/pages/call_page/app/view/call_screen.dart';
@@ -14,7 +15,11 @@ import 'package:medical_test_app/pages/need_help_page/app/view/need_help_screen.
 import 'package:medical_test_app/pages/onboarding_page/app/views/onboarding_screen.dart';
 import 'package:medical_test_app/pages/signup_page/app/views/signup_screen.dart';
 import 'package:medical_test_app/pages/onboarding_page/app/views/splash_screen.dart';
+import 'package:medical_test_app/pages/test_health_condition_page/app/views/popular_health_package.dart';
+import 'package:medical_test_app/pages/test_health_condition_page/app/views/test_body_part.dart';
+import 'package:medical_test_app/pages/test_health_condition_page/app/views/test_health_condition.dart';
 import 'package:medical_test_app/pages/track_page/app/view/track_screen.dart';
+import 'package:medical_test_app/pages/view_reports/app/view/view_report.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: '/splash',
@@ -91,7 +96,27 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: '/book-test',
-      builder: (context, state) => const TestPackageScreen(),
+      builder: (context, state) => const BookTest(),
+    ),
+    GoRoute(
+      path: '/test-health-condition',
+      builder: (context, state) => const TestHealthCondition(),
+    ),
+    GoRoute(
+      path: '/test-body-part',
+      builder: (context, state) => const TestBodyPart(),
+    ),
+    GoRoute(
+      path: '/popular-health-package',
+      builder: (context, state) => const PopularHealthPackage(),
+    ),
+    GoRoute(
+      path: '/book-radiology',
+      builder: (context, state) => const BookRadiology(),
+    ),
+    GoRoute(
+      path: '/view-reports',
+      builder: (context, state) => const ViewReport(),
     ),
   ],
 );

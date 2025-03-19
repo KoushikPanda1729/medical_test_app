@@ -10,58 +10,32 @@ import 'package:medical_test_app/pages/book_test_page/app/views/widgets/filter_s
 import 'package:medical_test_app/commons/components/search_bar/app/view/search_bar_widget.dart';
 import 'package:medical_test_app/commons/components/package_card/app/view/test_package_card.dart';
 
-class BookTest extends StatelessWidget {
-  const BookTest({super.key});
+class BookRadiology extends StatelessWidget {
+  const BookRadiology({super.key});
 
   @override
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> testPackages = [
       {
-        'title': 'Complete Blood Test',
-        'parameters': '60 Parameters',
+        'title': 'Electrocardiogram (ECG)',
+        'parameters': 'Reports in 24 - 48 Hrs',
         'price': 3999
       },
       {
-        'title': 'Diabetes Screening',
-        'parameters': '20 Parameters',
-        'price': 1999
+        'title': 'Ultrasound Whole Abdomen',
+        'parameters': 'Reports in 24 - 48 Hrs',
+        'price': 3999
       },
       {
-        'title': 'Liver Function Test',
-        'parameters': '15 Parameters',
-        'price': 2499
+        'title': 'Tread Mill Test (TMT)',
+        'parameters': 'Reports in 24 - 48 Hrs',
+        'price': 3999
       },
       {
-        'title': 'Kidney Function Test',
-        'parameters': '12 Parameters',
-        'price': 1799
-      },
-      {
-        'title': 'Thyroid Profile',
-        'parameters': '10 Parameters',
-        'price': 1299
-      },
-      {
-        'title': 'Heart Health Package',
-        'parameters': '25 Parameters',
-        'price': 3499
-      },
-      {
-        'title': 'Vitamin Deficiency Test',
-        'parameters': '8 Parameters',
-        'price': 999
-      },
-      {
-        'title': 'Comprehensive Health Checkup',
-        'parameters': '75 Parameters',
-        'price': 4999
-      },
-      {
-        'title': 'Allergy Screening',
-        'parameters': '30 Parameters',
-        'price': 2799
-      },
-      {'title': 'Bone Health Test', 'parameters': '5 Parameters', 'price': 899},
+        'title': 'Ultrasound Abdomen Pelvis',
+        'parameters': 'Reports in 24 - 48 Hrs',
+        'price': 3999
+      }
     ];
 
     return Scaffold(
@@ -101,15 +75,14 @@ class BookTest extends StatelessWidget {
                         context: context,
                         child: BookTestFilter(
                           categories: const [
-                            "ABO Incompatibility",
-                            "Acid Base Imbalance",
-                            "leukemia",
-                            "leukemia",
-                            "ABO Incompatibility",
-                            "Acid Base Imbalance",
-                            "ABO Incompatibility",
-                            "Acid Base Imbalance",
-                            "leukemia",
+                            "BMD",
+                            "Cardiology",
+                            "CT Scan",
+                            "ENT",
+                            "Neurology",
+                            "Pulmonology",
+                            "Ultrasound",
+                            "X-Ray"
                           ],
                           onApply: (selected) {
                             print("Selected categories: $selected");

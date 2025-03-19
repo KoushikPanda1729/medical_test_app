@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:medical_test_app/commons/components/medical_services_card/app/view/medical_services_card.dart';
 import 'package:medical_test_app/commons/constants/app_icons.dart';
 
@@ -7,11 +8,27 @@ class MedicalServicesFlex extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Map<String, String>> services = [
-      {'title': 'Book Home Collection', 'iconPath': AppIcons.heartBeat},
-      {'title': 'View My Reports', 'iconPath': AppIcons.heartBeat},
-      {'title': 'Popular Test Packages', 'iconPath': AppIcons.heartBeat},
-      {'title': 'Book Your Radiology Scans', 'iconPath': AppIcons.heartBeat},
+    List<Map<String, dynamic>> services = [
+      {
+        'title': 'Book Home Collection',
+        'iconPath': AppIcons.heartBeat,
+        'route': '/home-collection', // Define routes
+      },
+      {
+        'title': 'View My Reports',
+        'iconPath': AppIcons.heartBeat,
+        'route': '/view-reports',
+      },
+      {
+        'title': 'Popular Test Packages',
+        'iconPath': AppIcons.heartBeat,
+        'route': '/popular-health-package',
+      },
+      {
+        'title': 'Book Your Radiology Scans',
+        'iconPath': AppIcons.heartBeat,
+        'route': '/book-radiology',
+      },
     ];
 
     return Padding(
@@ -26,6 +43,10 @@ class MedicalServicesFlex extends StatelessWidget {
             child: MedicalServicesCard(
               title: services[index]['title']!,
               iconPath: services[index]['iconPath']!,
+              onTap: () {
+                context
+                    .push(services[index]['route']); // Navigate using GoRouter
+              },
             ),
           );
         }),

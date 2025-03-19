@@ -2,14 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:medical_test_app/commons/constants/app_colors.dart';
 import 'package:medical_test_app/commons/constants/app_icons.dart';
-import 'package:medical_test_app/commons/components/test_package_card/app/view/test_package_card.dart';
+import 'package:medical_test_app/commons/components/package_card/app/view/health_package_card.dart';
 
 class HealthPackages extends StatelessWidget {
   const HealthPackages({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, dynamic>> healthPackages = [
+      {
+        "title": "Complete Blood Test",
+        "icon": AppIcons.dna,
+        "numberOfTests": 30,
+        "amount": 3999.0,
+      },
+      {
+        "title": "Advanced Health Check",
+        "icon": AppIcons.dna,
+        "numberOfTests": 40,
+        "amount": 4999.0,
+      },
+    ];
+
     return Container(
+      width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,33 +53,27 @@ class HealthPackages extends StatelessWidget {
                   ],
                 ),
               ),
-              const Text(
-                "See All",
-                style: TextStyle(color: AppColors.teal),
+              GestureDetector(
+                onTap: () => context.push("/popular-health-package"),
+                child: const Text(
+                  "See All",
+                  style: TextStyle(color: AppColors.teal),
+                ),
               )
             ],
           ),
           const SizedBox(height: 15),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              TestPackageCard(
-                title: 'Complete Blood Test',
-                icon: AppIcons.dna,
-                numberOfTests: 30,
-                amount: 3999,
-                onBookNow: () {
-                  context.push("/booking_details");
-                },
-              ),
-              TestPackageCard(
-                title: 'Advanced Health Check',
-                icon: AppIcons.dna,
-                numberOfTests: 40,
-                amount: 4999,
-                onBookNow: () {},
-              ),
-            ],
+            children: healthPackages.map((package) {
+              return HealthPackageCard(
+                title: package["title"],
+                icon: package["icon"],
+                numberOfTests: package["numberOfTests"],
+                amount: package["amount"],
+                onBookNow: () => context.push("/booking_details"),
+              );
+            }).toList(),
           ),
         ],
       ),

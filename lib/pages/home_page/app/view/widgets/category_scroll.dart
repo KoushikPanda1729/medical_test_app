@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:medical_test_app/commons/constants/app_images.dart';
 import 'package:medical_test_app/commons/constants/app_colors.dart';
 import 'package:medical_test_app/commons/components/health_condition_card/app/view/health_condition_card.dart';
@@ -14,9 +15,11 @@ class CategoryScroll extends StatelessWidget {
       {"icon": AppImages.diabetes, "text": "Cancer"},
       {"icon": AppImages.diabetes, "text": "Kidney Disease"},
       {"icon": AppImages.diabetes, "text": "Lung Disease"},
+      {"icon": AppImages.diabetes, "text": "Liver Disease"},
     ];
 
     return Container(
+      width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -25,7 +28,7 @@ class CategoryScroll extends StatelessWidget {
             text: const TextSpan(
               children: [
                 TextSpan(
-                  text: "Popular ",
+                  text: "Choose Test By ",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
@@ -33,7 +36,7 @@ class CategoryScroll extends StatelessWidget {
                   ),
                 ),
                 TextSpan(
-                  text: "Health Packages",
+                  text: " Health Conditions",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
@@ -53,7 +56,7 @@ class CategoryScroll extends StatelessWidget {
                   icon: category["icon"]!,
                   text: category["text"]!,
                   onPress: () {
-                    // print("${category['text']} card clicked!");
+                    context.push("/test-health-condition");
                   },
                 );
               }).toList(),

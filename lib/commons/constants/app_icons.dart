@@ -50,4 +50,5 @@ class AppIcons {
   static const String male = 'assets/icons/male.svg';
   static const String female = 'assets/icons/female.svg';
   static const String filter = 'assets/icons/filter.svg';
+  static const String download = 'assets/icons/download.svg';
 }

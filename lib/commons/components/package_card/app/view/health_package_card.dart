@@ -3,14 +3,14 @@ import 'package:flutter_svg/svg.dart';
 import 'package:medical_test_app/commons/components/buttons/app/solid_button_widget.dart';
 import 'package:medical_test_app/commons/constants/app_colors.dart';
 
-class TestPackageCard extends StatelessWidget {
+class HealthPackageCard extends StatelessWidget {
   final String title;
   final String icon;
   final int numberOfTests;
   final double amount;
   final VoidCallback onBookNow;
 
-  const TestPackageCard({
+  const HealthPackageCard({
     super.key,
     required this.title,
     required this.icon,
