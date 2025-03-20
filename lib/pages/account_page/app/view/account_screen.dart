@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});
@@ -108,13 +109,21 @@ class ProfileAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        const CircleAvatar(
-          radius: 30,
-          backgroundColor: Colors.grey,
-          child: Icon(
-            Icons.person,
-            size: 40,
-            color: Colors.white,
+        GestureDetector(
+          onTap: () {
+            context.push(
+              "/add_family_member_and_edit_profile",
+              extra: true,
+            );
+          },
+          child: const CircleAvatar(
+            radius: 30,
+            backgroundColor: Colors.grey,
+            child: Icon(
+              Icons.person,
+              size: 40,
+              color: Colors.white,
+            ),
           ),
         ),
         Positioned(

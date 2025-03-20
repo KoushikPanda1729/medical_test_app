@@ -60,7 +60,7 @@ class PaymentSuccessfulScreen extends StatelessWidget {
                 const SizedBox(height: 20),
                 ElevatedButton.icon(
                   onPressed: () {
-                    context.push("/");
+                    context.go("/");
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.teal,

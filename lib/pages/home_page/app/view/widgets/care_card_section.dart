@@ -23,9 +23,7 @@ class CareCardSection extends StatelessWidget {
             return CareCard(
               text: service["text"],
               icon: service["icon"],
-              onPress: () {
-                print("${service["text"]} clicked!");
-              },
+              onPress: () {},
             );
           }).toList(),
         ),

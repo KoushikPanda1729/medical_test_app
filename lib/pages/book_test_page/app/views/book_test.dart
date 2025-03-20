@@ -111,9 +111,7 @@ class BookTest extends StatelessWidget {
                             "Acid Base Imbalance",
                             "leukemia",
                           ],
-                          onApply: (selected) {
-                            print("Selected categories: $selected");
-                          },
+                          onApply: (selected) {},
                         ),
                       );
                     },

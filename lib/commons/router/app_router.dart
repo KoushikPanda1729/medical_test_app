@@ -1,14 +1,12 @@
 import 'package:go_router/go_router.dart';
+import 'package:medical_test_app/commons/components/add_member_and_edit_profile/app/view/add_member_and_edit_profile.dart';
 import 'package:medical_test_app/pages/account_page/app/view/account_screen.dart';
 import 'package:medical_test_app/pages/book_test_page/app/views/book_radiology.dart';
 import 'package:medical_test_app/pages/book_test_page/app/views/book_test.dart';
 import 'package:medical_test_app/pages/booking_details_page/app/view/booking_details_screen.dart';
 import 'package:medical_test_app/pages/call_page/app/view/call_screen.dart';
-import 'package:medical_test_app/pages/checkout_page/app/view/checkout_summary.dart';
-import 'package:medical_test_app/pages/checkout_page/app/view/make_payment.dart';
-import 'package:medical_test_app/pages/checkout_page/app/view/payment_successfull_screen.dart';
-import 'package:medical_test_app/pages/checkout_page/app/view/select_member_page.dart';
-import 'package:medical_test_app/pages/checkout_page/app/view/select_schedule_test.dart';
+import 'package:medical_test_app/pages/checkout_summary_page/app/view/checkout_page.dart';
+import 'package:medical_test_app/pages/checkout_summary_page/app/view/payments_success_screen.dart';
 import 'package:medical_test_app/pages/login_page/app/views/login_screen.dart';
 import 'package:medical_test_app/pages/main_navigaion/app/view/main_navigation.dart';
 import 'package:medical_test_app/pages/need_help_page/app/view/need_help_screen.dart';
@@ -18,7 +16,7 @@ import 'package:medical_test_app/pages/onboarding_page/app/views/splash_screen.d
 import 'package:medical_test_app/pages/test_health_condition_page/app/views/popular_health_package.dart';
 import 'package:medical_test_app/pages/test_health_condition_page/app/views/test_body_part.dart';
 import 'package:medical_test_app/pages/test_health_condition_page/app/views/test_health_condition.dart';
-import 'package:medical_test_app/pages/track_page/app/view/track_screen.dart';
+import 'package:medical_test_app/pages/track_page/app/view/track_order_widget.dart';
 import 'package:medical_test_app/pages/view_reports/app/view/view_report.dart';
 
 final GoRouter router = GoRouter(
@@ -49,7 +47,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/track',
       name: "track",
-      builder: (context, state) => const TrackScreen(),
+      builder: (context, state) => const TrackOrderWidget(),
     ),
     GoRoute(
       path: '/account',
@@ -74,22 +72,12 @@ final GoRouter router = GoRouter(
       path: '/signup',
       builder: (context, state) => const SignupScreen(),
     ),
+    // Unified checkout route - single entry point for the entire checkout flow
     GoRoute(
-      path: '/checkout_summary',
-      builder: (context, state) => const CheckoutSummary(),
+      path: '/checkout',
+      builder: (context, state) => const CheckoutPage(),
     ),
-    GoRoute(
-      path: '/add_member',
-      builder: (context, state) => SelectMemberScreen(),
-    ),
-    GoRoute(
-      path: '/add_schedule',
-      builder: (context, state) => const SelectDateTimeAddressScreen(),
-    ),
-    GoRoute(
-      path: '/make_payment',
-      builder: (context, state) => const MakePayment(),
-    ),
+    // Existing routes that remain the same
     GoRoute(
       path: '/payment_success',
       builder: (context, state) => const PaymentSuccessfulScreen(),
@@ -98,6 +86,7 @@ final GoRouter router = GoRouter(
       path: '/book-test',
       builder: (context, state) => const BookTest(),
     ),
+
     GoRoute(
       path: '/test-health-condition',
       builder: (context, state) => const TestHealthCondition(),
@@ -117,6 +106,13 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/view-reports',
       builder: (context, state) => const ViewReport(),
+    ),
+    GoRoute(
+      path: '/add_family_member_and_edit_profile',
+      builder: (context, state) {
+        final isEditMode = state.extra as bool? ?? false;
+        return AddMemberAndEditProfile(isEditMode: isEditMode);
+      },
     ),
   ],
 );

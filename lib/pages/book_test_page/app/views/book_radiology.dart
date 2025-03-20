@@ -84,9 +84,7 @@ class BookRadiology extends StatelessWidget {
                             "Ultrasound",
                             "X-Ray"
                           ],
-                          onApply: (selected) {
-                            print("Selected categories: $selected");
-                          },
+                          onApply: (selected) {},
                         ),
                       );
                     },

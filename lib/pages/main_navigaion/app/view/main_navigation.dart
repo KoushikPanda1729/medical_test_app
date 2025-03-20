@@ -4,7 +4,7 @@ import 'package:medical_test_app/pages/account_page/app/view/account_screen.dart
 import 'package:medical_test_app/pages/call_page/app/view/call_screen.dart';
 import 'package:medical_test_app/pages/home_page/app/view/home_screen.dart';
 import 'package:medical_test_app/pages/need_help_page/app/view/need_help_screen.dart';
-import 'package:medical_test_app/pages/track_page/app/view/track_screen.dart';
+import 'package:medical_test_app/pages/track_page/app/view/track_order_widget.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
@@ -42,7 +42,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                 HomeScreen(),
                 NeedHelpScreen(),
                 CallScreen(),
-                TrackScreen(),
+                TrackOrderWidget(),
                 AccountScreen(),
               ],
             ),

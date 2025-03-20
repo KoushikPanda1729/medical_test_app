@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:medical_test_app/commons/components/buttons/app/floating_button__widget.dart';
 import 'package:medical_test_app/commons/constants/app_colors.dart';
 import 'package:medical_test_app/commons/constants/app_icons.dart';
-import 'package:medical_test_app/commons/router/app_router.dart';
 
 class NavBar extends StatelessWidget {
   final Widget? leadingIcon;
@@ -15,7 +14,7 @@ class NavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
         decoration: const BoxDecoration(
           color: Colors.white,
         ),
@@ -77,7 +76,9 @@ class NavBar extends StatelessWidget {
                         iconSize: 18,
                       ),
                       FloatingButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.push("/checkout");
+                        },
                         iconPath: AppIcons.shoppingCart,
                         backgroundColor: AppColors.white,
                         iconColor: AppColors.teal,
