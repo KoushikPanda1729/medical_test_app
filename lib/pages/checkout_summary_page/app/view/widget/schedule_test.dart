@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:medical_test_app/commons/components/buttons/app/outline_button_widget.dart';
 import 'package:medical_test_app/commons/components/buttons/app/solid_button_widget.dart';
 import 'package:medical_test_app/commons/constants/app_colors.dart';
@@ -54,7 +55,9 @@ class ScheduleTestStep extends ConsumerWidget {
                 height: 56,
                 child: OutlineButtonWidget(
                   label: "Add New Address",
-                  onPressed: () {},
+                  onPressed: () {
+                    context.push("/add_update_address");
+                  },
                   isLeadingIcon: true,
                   iconPath: AppIcons.plusSmall,
                   borderColor: AppColors.teal,

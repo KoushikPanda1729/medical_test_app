@@ -88,11 +88,25 @@ class BookTest extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Expanded(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SearchBarWidget(
                     onChanged: (value) {},
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 17),
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: [
+                      PillTagChip(
+                        label: "Complete Blood Count",
+                        onRemove: () {
+                          // Handle remove action
+                        },
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 15),
                   FilterSwitchWidget(
                     isSwitched: true,
                     onToggle: (value) {},
@@ -138,6 +152,51 @@ class BookTest extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class PillTagChip extends StatelessWidget {
+  final String label;
+  final VoidCallback onRemove;
+
+  const PillTagChip({
+    super.key,
+    required this.label,
+    required this.onRemove,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: const Color(0xFFD7F1F0), // Light teal background
+        borderRadius: BorderRadius.circular(20), // Rounded border
+        border: Border.all(color: const Color(0xFF00A9A7)), // Teal border
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            label,
+            style: const TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+              color: Colors.black, // Black text color
+            ),
+          ),
+          const SizedBox(width: 8), // Space between text and icon
+          GestureDetector(
+            onTap: onRemove,
+            child: const Icon(
+              Icons.close,
+              size: 18,
+              color: Color(0xFF00A9A7), // Teal close icon
             ),
           ),
         ],

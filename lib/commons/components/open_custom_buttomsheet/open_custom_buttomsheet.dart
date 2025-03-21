@@ -15,6 +15,7 @@ void openCustomBottomSheet({
   bool enableSwipeDownToClose = true,
   bool enableTapToClose = true,
   Color bottomSheetColor = Colors.white,
+  bool notPushUp = true,
 }) {
   Navigator.of(context).push(
     PageRouteBuilder(
@@ -23,6 +24,7 @@ void openCustomBottomSheet({
       pageBuilder: (BuildContext context, Animation<double> animation,
           Animation<double> secondaryAnimation) {
         return Scaffold(
+          resizeToAvoidBottomInset: notPushUp,
           backgroundColor: Colors.transparent,
           body: Stack(
             children: [

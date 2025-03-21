@@ -63,8 +63,7 @@ class CallScreen extends StatelessWidget {
                 CircleAvatar(
                   radius: 50,
                   backgroundColor: Colors.blue.shade100,
-                  backgroundImage: const AssetImage(
-                      "assets/images/support_agent.png"), // Replace with actual asset
+                  // Replace with actual asset
                 ),
                 const SizedBox(height: 12),
                 const Text(

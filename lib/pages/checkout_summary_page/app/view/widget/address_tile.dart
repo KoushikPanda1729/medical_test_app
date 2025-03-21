@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:medical_test_app/commons/constants/app_colors.dart';
 import 'package:medical_test_app/commons/constants/app_icons.dart';
 
@@ -44,14 +45,19 @@ class AddressTile extends StatelessWidget {
                 height: 18,
               ),
               const SizedBox(height: 13),
-              SvgPicture.asset(
-                AppIcons.pencil,
-                colorFilter: const ColorFilter.mode(
-                  AppColors.teal,
-                  BlendMode.srcIn,
+              GestureDetector(
+                onTap: () {
+                  context.push("/add_update_address", extra: true);
+                },
+                child: SvgPicture.asset(
+                  AppIcons.pencil,
+                  colorFilter: const ColorFilter.mode(
+                    AppColors.teal,
+                    BlendMode.srcIn,
+                  ),
+                  width: 18,
+                  height: 18,
                 ),
-                width: 18,
-                height: 18,
               ),
             ],
           )

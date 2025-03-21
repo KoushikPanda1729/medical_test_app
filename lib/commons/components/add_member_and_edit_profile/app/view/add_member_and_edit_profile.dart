@@ -63,8 +63,6 @@ class AddMemberAndEditProfile extends StatelessWidget {
                             children: [
                               const CircleAvatar(
                                 radius: 40,
-                                backgroundImage: AssetImage(
-                                    "assets/profile_placeholder.png"),
                               ),
                               Positioned(
                                 bottom: 0,
@@ -236,7 +234,7 @@ class AddMemberAndEditProfile extends StatelessWidget {
                       onTextChanged: (value) {},
                       labelText: "Landmark (optional)",
                     ),
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 35),
 
                     // Change button text dynamically
                     SolidButtonWidget(

@@ -7,6 +7,7 @@ import 'package:medical_test_app/pages/booking_details_page/app/view/booking_det
 import 'package:medical_test_app/pages/call_page/app/view/call_screen.dart';
 import 'package:medical_test_app/pages/checkout_summary_page/app/view/checkout_page.dart';
 import 'package:medical_test_app/pages/checkout_summary_page/app/view/payments_success_screen.dart';
+import 'package:medical_test_app/pages/checkout_summary_page/app/view/widget/add_update_address.dart';
 import 'package:medical_test_app/pages/login_page/app/views/login_screen.dart';
 import 'package:medical_test_app/pages/main_navigaion/app/view/main_navigation.dart';
 import 'package:medical_test_app/pages/need_help_page/app/view/need_help_screen.dart';
@@ -106,6 +107,15 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/view-reports',
       builder: (context, state) => const ViewReport(),
+    ),
+    GoRoute(
+      path: '/add_update_address',
+      builder: (context, state) {
+        final isEditMode = state.extra as bool? ?? false;
+        return AddUpdateAddress(
+          isEditMode: isEditMode,
+        );
+      },
     ),
     GoRoute(
       path: '/add_family_member_and_edit_profile',
