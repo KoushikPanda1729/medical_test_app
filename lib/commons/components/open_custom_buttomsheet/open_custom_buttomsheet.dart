@@ -15,7 +15,7 @@ void openCustomBottomSheet({
   bool enableSwipeDownToClose = true,
   bool enableTapToClose = true,
   Color bottomSheetColor = Colors.white,
-  bool notPushUp = true,
+  bool notPushUp = false,
 }) {
   Navigator.of(context).push(
     PageRouteBuilder(

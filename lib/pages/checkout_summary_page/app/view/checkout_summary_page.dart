@@ -58,7 +58,6 @@ class CartSummaryStep extends ConsumerWidget {
                 openCustomBottomSheet(
                   context: context,
                   child: const ApplyCouponsWidget(),
-                  notPushUp: false,
                 );
               },
               subTotal: checkoutData['subTotal'],
