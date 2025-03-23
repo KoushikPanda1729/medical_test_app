@@ -71,7 +71,7 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: '/signup',
-      builder: (context, state) => const SignupScreen(),
+      builder: (context, state) => SignupScreen(),
     ),
     // Unified checkout route - single entry point for the entire checkout flow
     GoRoute(

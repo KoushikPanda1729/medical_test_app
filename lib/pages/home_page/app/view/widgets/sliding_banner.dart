@@ -1,35 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:medical_test_app/commons/constants/app_colors.dart';
-import 'package:medical_test_app/commons/constants/app_images.dart';
+import 'package:medical_test_app/pages/home_page/app/provider/sliding_banner_provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class SlidingBanner extends StatefulWidget {
+class SlidingBanner extends ConsumerWidget {
   const SlidingBanner({super.key});
 
   @override
-  State<SlidingBanner> createState() => _SlidingBannerState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final bannerState = ref.watch(slidingBannerProvider);
 
-class _SlidingBannerState extends State<SlidingBanner> {
-  final PageController pageController = PageController();
-  final List<String> banners = [
-    AppImages.mainBanner,
-    AppImages.mainBanner,
-    AppImages.mainBanner,
-    AppImages.mainBanner,
-  ];
-
-  @override
-  Widget build(BuildContext context) {
     return Column(
       children: [
         SizedBox(
           height: 256,
           width: double.infinity,
           child: PageView.builder(
-            controller: pageController,
-            itemCount: banners.length,
+            controller: bannerState.pageController,
+            itemCount: bannerState.banners.length,
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
@@ -43,7 +33,7 @@ class _SlidingBannerState extends State<SlidingBanner> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(12),
                     child: Image.asset(
-                      banners[index],
+                      bannerState.banners[index],
                       fit: BoxFit.cover,
                       width: double.infinity,
                     ),
@@ -55,8 +45,8 @@ class _SlidingBannerState extends State<SlidingBanner> {
         ),
         const SizedBox(height: 8),
         SmoothPageIndicator(
-          controller: pageController,
-          count: banners.length,
+          controller: bannerState.pageController,
+          count: bannerState.banners.length,
           effect: ExpandingDotsEffect(
             dotWidth: 8,
             dotHeight: 8,

@@ -10,15 +10,10 @@ import 'package:medical_test_app/commons/components/text_fields/app/views/email_
 import 'package:medical_test_app/commons/constants/app_colors.dart';
 import 'package:medical_test_app/commons/constants/app_icons.dart';
 
-class SignupScreen extends StatefulWidget {
-  const SignupScreen({super.key});
+class SignupScreen extends StatelessWidget {
+  SignupScreen({super.key});
 
-  @override
-  SignupScreenState createState() => SignupScreenState();
-}
-
-class SignupScreenState extends State<SignupScreen> {
-  bool isMale = true;
+  final ValueNotifier<bool> isMaleNotifier = ValueNotifier<bool>(true);
 
   @override
   Widget build(BuildContext context) {
@@ -58,9 +53,7 @@ class SignupScreenState extends State<SignupScreen> {
                       labelText: "Name*",
                       onTextChanged: (value) {},
                     ),
-                    const SizedBox(
-                      height: 16,
-                    ),
+                    const SizedBox(height: 16),
                     EmailTextfieldWidget(
                       onTextChanged: (value) {},
                       labelText: "Email*",
@@ -78,25 +71,26 @@ class SignupScreenState extends State<SignupScreen> {
                         const SizedBox(height: 20),
                         buildLabel("Gender*"),
                         const SizedBox(height: 12),
-                        Row(
-                          children: [
-                            buildGenderButton("Male", true),
-                            const SizedBox(width: 10),
-                            buildGenderButton("Female", false),
-                          ],
+                        ValueListenableBuilder<bool>(
+                          valueListenable: isMaleNotifier,
+                          builder: (context, isMale, child) {
+                            return Row(
+                              children: [
+                                buildGenderButton("Male", true, isMale),
+                                const SizedBox(width: 10),
+                                buildGenderButton("Female", false, isMale),
+                              ],
+                            );
+                          },
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 16,
-                    ),
+                    const SizedBox(height: 16),
                     AlphabeticTextfieldWidget(
                       onTextChanged: (value) {},
                       labelText: "City*",
                     ),
-                    const SizedBox(
-                      height: 16,
-                    ),
+                    const SizedBox(height: 16),
                     AlphaNumericTextfieldWidget(
                       onTextChanged: (value) {},
                       labelText: "Referral Code (Optional)",
@@ -122,16 +116,17 @@ class SignupScreenState extends State<SignupScreen> {
     return Text(
       text,
       style: const TextStyle(
-          fontSize: 16, fontWeight: FontWeight.bold, color: Colors.teal),
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+        color: Colors.teal,
+      ),
     );
   }
 
-  Widget buildGenderButton(String text, bool male) {
+  Widget buildGenderButton(String text, bool male, bool isMale) {
     return GestureDetector(
       onTap: () {
-        setState(() {
-          isMale = male;
-        });
+        isMaleNotifier.value = male;
       },
       child: Container(
         height: 38,

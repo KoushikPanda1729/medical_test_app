@@ -8,14 +8,9 @@ import 'package:medical_test_app/pages/home_page/app/view/widgets/medical_servic
 import 'package:medical_test_app/pages/home_page/app/view/widgets/promo_section.dart';
 import 'package:medical_test_app/pages/home_page/app/view/widgets/sliding_banner.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return const Column(

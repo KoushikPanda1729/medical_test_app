@@ -1,27 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:medical_test_app/commons/constants/app_images.dart';
 
-class SplashScreen extends StatefulWidget {
+class SplashScreen extends ConsumerWidget {
   const SplashScreen({super.key});
 
   @override
-  SplashScreenState createState() => SplashScreenState();
-}
-
-class SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
+  Widget build(BuildContext context, WidgetRef ref) {
     Future.delayed(const Duration(seconds: 3), () {
-      if (mounted) {
+      if (context.mounted) {
         context.go('/onboarding');
       }
     });
-  }
 
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,

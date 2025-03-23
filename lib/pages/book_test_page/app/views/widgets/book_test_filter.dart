@@ -5,31 +5,28 @@ import 'package:medical_test_app/commons/components/buttons/app/solid_button_wid
 import 'package:medical_test_app/commons/constants/app_colors.dart';
 import 'package:medical_test_app/commons/constants/app_icons.dart';
 
-class BookTestFilter extends StatefulWidget {
+class BookTestFilter extends StatelessWidget {
   final List<String> categories;
   final Function(List<String>) onApply;
 
-  const BookTestFilter({
+  BookTestFilter({
     super.key,
     required this.categories,
     required this.onApply,
   });
 
-  @override
-  BookTestFilterState createState() => BookTestFilterState();
-}
-
-class BookTestFilterState extends State<BookTestFilter> {
-  List<String> selectedCategories = [];
+  final ValueNotifier<List<String>> selectedCategoriesNotifier =
+      ValueNotifier([]);
 
   void _toggleSelection(String category) {
-    setState(() {
-      if (selectedCategories.contains(category)) {
-        selectedCategories.remove(category);
-      } else {
-        selectedCategories.add(category);
-      }
-    });
+    final updatedCategories =
+        List<String>.from(selectedCategoriesNotifier.value);
+    if (updatedCategories.contains(category)) {
+      updatedCategories.remove(category);
+    } else {
+      updatedCategories.add(category);
+    }
+    selectedCategoriesNotifier.value = updatedCategories;
   }
 
   @override
@@ -43,9 +40,7 @@ class BookTestFilterState extends State<BookTestFilter> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               FloatingButton(
-                onPressed: () {
-                  context.pop();
-                },
+                onPressed: () => context.pop(),
                 iconPath: AppIcons.angleSmallRight,
                 backgroundColor: AppColors.white,
                 iconColor: AppColors.black,
@@ -66,40 +61,46 @@ class BookTestFilterState extends State<BookTestFilter> {
             ],
           ),
           const SizedBox(height: 29),
-          Wrap(
-            spacing: 10,
-            runSpacing: 10,
-            children: widget.categories.map((category) {
-              final isSelected = selectedCategories.contains(category);
-              return GestureDetector(
-                onTap: () => _toggleSelection(category),
-                child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                  decoration: BoxDecoration(
-                    color: isSelected ? Colors.teal : Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: Colors.teal),
-                  ),
-                  child: Text(
-                    category,
-                    style: TextStyle(
-                      color: isSelected ? Colors.white : Colors.teal,
-                      fontWeight: FontWeight.w500,
+          ValueListenableBuilder<List<String>>(
+            valueListenable: selectedCategoriesNotifier,
+            builder: (context, selectedCategories, child) {
+              return Wrap(
+                spacing: 10,
+                runSpacing: 10,
+                children: categories.map((category) {
+                  final isSelected = selectedCategories.contains(category);
+                  return GestureDetector(
+                    onTap: () => _toggleSelection(category),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 12, vertical: 8),
+                      decoration: BoxDecoration(
+                        color: isSelected ? Colors.teal : Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: Colors.teal),
+                      ),
+                      child: Text(
+                        category,
+                        style: TextStyle(
+                          color: isSelected ? Colors.white : Colors.teal,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
                     ),
-                  ),
-                ),
+                  );
+                }).toList(),
               );
-            }).toList(),
+            },
           ),
           const SizedBox(height: 55),
           SolidButtonWidget(
             label: "Apply",
             onPressed: () {
+              onApply(selectedCategoriesNotifier.value);
               context.pop();
             },
             isCircle: true,
-          )
+          ),
         ],
       ),
     );

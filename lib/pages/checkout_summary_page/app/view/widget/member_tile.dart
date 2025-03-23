@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:medical_test_app/commons/components/profile_avatar/app/view/profile_avatar.dart';
 import 'package:medical_test_app/commons/constants/app_colors.dart';
+import 'package:medical_test_app/commons/constants/app_images.dart';
 
 class MemberTile extends StatelessWidget {
   final String name;
@@ -33,10 +35,11 @@ class MemberTile extends StatelessWidget {
         ),
         child: Row(
           children: [
-            CircleAvatar(
-              radius: 20,
-              backgroundColor: Colors.grey[300],
-              child: const Icon(Icons.person, color: Colors.teal),
+            ProfileAvatar(
+              imagePath: AppImages.profilePicture,
+              onTap: () {},
+              size: 40,
+              isEditingIcon: false,
             ),
             const SizedBox(width: 10),
             Expanded(

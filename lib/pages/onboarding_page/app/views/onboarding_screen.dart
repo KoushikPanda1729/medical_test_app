@@ -1,58 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:medical_test_app/commons/components/buttons/app/floating_button__widget.dart';
 import 'package:medical_test_app/commons/constants/app_colors.dart';
 import 'package:medical_test_app/commons/constants/app_icons.dart';
-import 'package:medical_test_app/commons/constants/app_images.dart';
+import 'package:medical_test_app/pages/onboarding_page/app/providers/onboarding_provider.dart';
 
-class OnboardingScreen extends StatefulWidget {
+class OnboardingScreen extends ConsumerWidget {
   const OnboardingScreen({super.key});
 
   @override
-  OnboardingScreenState createState() => OnboardingScreenState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final onboardingState = ref.watch(onboardingProvider);
+    final onboardingViewModel = ref.read(onboardingProvider.notifier);
 
-class OnboardingScreenState extends State<OnboardingScreen> {
-  final PageController _controller = PageController();
-  int _currentPage = 0;
-
-  final List<String> _onboardingImages = [
-    AppImages.onboarding1,
-    AppImages.onboarding2,
-    AppImages.onboarding3,
-    AppImages.onboarding4,
-  ];
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    for (var image in _onboardingImages) {
-      precacheImage(AssetImage(image), context);
-    }
-  }
-
-  void _nextPage() {
-    if (_currentPage == _onboardingImages.length - 1) {
-      context.push('/login');
-    } else {
-      _controller.nextPage(
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.ease,
-      );
-    }
-  }
-
-  void _previousPage() {
-    if (_currentPage > 0) {
-      _controller.previousPage(
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.ease,
-      );
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -65,16 +27,12 @@ class OnboardingScreenState extends State<OnboardingScreen> {
           return Stack(
             children: [
               PageView.builder(
-                controller: _controller,
-                itemCount: _onboardingImages.length,
-                onPageChanged: (index) {
-                  setState(() {
-                    _currentPage = index;
-                  });
-                },
+                controller: onboardingState.pageController,
+                itemCount: onboardingState.onboardingImages.length,
+                onPageChanged: (index) => onboardingViewModel.updatePage(index),
                 itemBuilder: (context, index) {
                   return Image.asset(
-                    _onboardingImages[index],
+                    onboardingState.onboardingImages[index],
                     fit: BoxFit.cover,
                     width: double.infinity,
                     height: double.infinity,
@@ -89,24 +47,35 @@ class OnboardingScreenState extends State<OnboardingScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     FloatingButton(
-                      onPressed: _previousPage,
+                      onPressed: onboardingViewModel.previousPage,
                       iconPath: AppIcons.angleSmallRight,
-                      backgroundColor: _currentPage == 0
+                      backgroundColor: onboardingState.currentPage == 0
                           ? AppColors.lightTeal
                           : AppColors.teal,
                       iconColor: AppColors.white,
                       isRotated: true,
-                      isDisabled: _currentPage == 0,
+                      isDisabled: onboardingState.currentPage == 0,
                       buttonSize: buttonSize,
                       iconSize: iconSize,
                     ),
-                    PageIndicator(
-                      totalPages: _onboardingImages.length,
-                      currentPage: _currentPage,
-                      size: indicatorSize,
+                    SmoothPageIndicator(
+                      controller: onboardingState.pageController,
+                      count: onboardingState.onboardingImages.length,
+                      effect: ExpandingDotsEffect(
+                        dotHeight: indicatorSize,
+                        dotWidth: indicatorSize,
+                        activeDotColor: AppColors.teal,
+                        dotColor: AppColors.unselect,
+                      ),
                     ),
                     FloatingButton(
-                      onPressed: _nextPage,
+                      onPressed: () {
+                        if (onboardingViewModel.isLastPage()) {
+                          context.push('/login');
+                        } else {
+                          onboardingViewModel.nextPage();
+                        }
+                      },
                       iconPath: AppIcons.angleSmallRight,
                       backgroundColor: AppColors.teal,
                       iconColor: AppColors.white,
@@ -120,39 +89,6 @@ class OnboardingScreenState extends State<OnboardingScreen> {
             ],
           );
         },
-      ),
-    );
-  }
-}
-
-/// Page indicator (dots)
-class PageIndicator extends StatelessWidget {
-  final int totalPages;
-  final int currentPage;
-  final double size;
-
-  const PageIndicator({
-    super.key,
-    required this.totalPages,
-    required this.currentPage,
-    required this.size,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: List.generate(
-        totalPages,
-        (index) => Container(
-          margin: const EdgeInsets.symmetric(horizontal: 5),
-          width: size,
-          height: size,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: currentPage == index ? AppColors.teal : AppColors.unselect,
-          ),
-        ),
       ),
     );
   }

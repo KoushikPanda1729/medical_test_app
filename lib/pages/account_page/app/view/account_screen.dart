@@ -73,7 +73,8 @@ class AccountScreen extends StatelessWidget {
                     ProfileAvatar(
                       imagePath: AppImages.profilePicture,
                       onTap: () {
-                        context.push("/add_family_member_and_edit_profile");
+                        context.push("/add_family_member_and_edit_profile",
+                            extra: true);
                       },
                     ),
                   ],

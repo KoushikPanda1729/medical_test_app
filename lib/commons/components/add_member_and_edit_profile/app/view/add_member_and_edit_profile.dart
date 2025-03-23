@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:medical_test_app/commons/components/buttons/app/floating_button__widget.dart';
 import 'package:medical_test_app/commons/components/buttons/app/solid_button_widget.dart';
 import 'package:medical_test_app/commons/components/navigation_bar/app/view/navigation_bar.dart';
+import 'package:medical_test_app/commons/components/profile_avatar/app/view/profile_avatar.dart';
 import 'package:medical_test_app/commons/components/text_fields/app/views/alpha_neumeric_text_field_widget.dart';
 import 'package:medical_test_app/commons/components/text_fields/app/views/alphabetic_text_field_widget.dart';
 import 'package:medical_test_app/commons/components/text_fields/app/views/dropdown_text_field.dart';
@@ -11,6 +12,7 @@ import 'package:medical_test_app/commons/components/text_fields/app/views/email_
 import 'package:medical_test_app/commons/components/text_fields/app/views/numeric_text_field_widget.dart';
 import 'package:medical_test_app/commons/constants/app_colors.dart';
 import 'package:medical_test_app/commons/constants/app_icons.dart';
+import 'package:medical_test_app/commons/constants/app_images.dart';
 
 class AddMemberAndEditProfile extends StatelessWidget {
   final bool isEditMode;
@@ -58,30 +60,13 @@ class AddMemberAndEditProfile extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Center(
-                          child: Stack(
-                            children: [
-                              const CircleAvatar(
-                                radius: 40,
-                              ),
-                              Positioned(
-                                bottom: 0,
-                                right: 0,
-                                child: Container(
-                                  decoration: const BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.teal,
-                                  ),
-                                  padding: const EdgeInsets.all(6),
-                                  child: const Icon(
-                                    Icons.camera_alt,
-                                    size: 18,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
+                        ProfileAvatar(
+                          imagePath: AppImages.profilePicture,
+                          isUploadMode:
+                              (isEditMode == true || isEditMode == false)
+                                  ? true
+                                  : false,
+                          onTap: () {},
                         ),
                         const SizedBox(width: 14),
                         Expanded(

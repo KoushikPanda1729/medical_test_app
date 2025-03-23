@@ -33,7 +33,11 @@ class TestDetailCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(imagePath, width: double.infinity, fit: BoxFit.cover),
+          ClipRRect(
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+            child: Image.asset(imagePath,
+                width: double.infinity, fit: BoxFit.cover),
+          ),
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Column(
