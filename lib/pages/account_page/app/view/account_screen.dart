@@ -1,11 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:medical_test_app/commons/components/profile_avatar/app/view/profile_avatar.dart';
+import 'package:medical_test_app/commons/constants/app_colors.dart';
+import 'package:medical_test_app/commons/constants/app_icons.dart';
+import 'package:medical_test_app/commons/constants/app_images.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Define menu items with title, subtitle, and onTap function
+    final List<Map<String, dynamic>> menuItems = [
+      {
+        "title": "Bookings",
+        "subtitle": "Check Your Booking Status",
+        "onTap": () => context.push("/bookings"),
+      },
+      {
+        "title": "Reports",
+        "subtitle": "View Previous Reports",
+        "onTap": () => context.push("/reports"),
+      },
+      {
+        "title": "Track",
+        "subtitle": "Check Your Report Status",
+        "onTap": () => context.push("/track"),
+      },
+      {
+        "title": "Family",
+        "subtitle": "Check Members",
+        "onTap": () => context.push("/family"),
+      },
+    ];
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -16,9 +45,9 @@ class AccountScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Header with name and email
-                const Row(
+                Row(
                   children: [
-                    Expanded(
+                    const Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -41,7 +70,12 @@ class AccountScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    ProfileAvatar(),
+                    ProfileAvatar(
+                      imagePath: AppImages.profilePicture,
+                      onTap: () {
+                        context.push("/add_family_member_and_edit_profile");
+                      },
+                    ),
                   ],
                 ),
 
@@ -63,35 +97,21 @@ class AccountScreen extends StatelessWidget {
 
                 const SizedBox(height: 24),
 
-                // Menu items with borders
-                const BorderedMenuListItem(
-                  title: 'Bookings',
-                  subtitle: 'Check Your Booking Status',
-                  iconColor: Colors.teal,
-                ),
-
-                const SizedBox(height: 12),
-
-                const BorderedMenuListItem(
-                  title: 'Reports',
-                  subtitle: 'View Previous Reports',
-                  iconColor: Colors.teal,
-                ),
-
-                const SizedBox(height: 12),
-
-                const BorderedMenuListItem(
-                  title: 'Track',
-                  subtitle: 'Check Your Report Status',
-                  iconColor: Colors.teal,
-                ),
-
-                const SizedBox(height: 12),
-
-                const BorderedMenuListItem(
-                  title: 'Family',
-                  subtitle: 'Check Members',
-                  iconColor: Colors.teal,
+                // Dynamically generate menu items with functions
+                Column(
+                  children: menuItems
+                      .map(
+                        (item) => Padding(
+                          padding: const EdgeInsets.only(bottom: 12),
+                          child: BorderedMenuListItem(
+                            title: item["title"]!,
+                            subtitle: item["subtitle"]!,
+                            iconColor: Colors.teal,
+                            onTap: item["onTap"],
+                          ),
+                        ),
+                      )
+                      .toList(),
                 ),
               ],
             ),
@@ -102,68 +122,28 @@ class AccountScreen extends StatelessWidget {
   }
 }
 
-class ProfileAvatar extends StatelessWidget {
-  const ProfileAvatar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        GestureDetector(
-          onTap: () {
-            context.push(
-              "/add_family_member_and_edit_profile",
-              extra: true,
-            );
-          },
-          child: const CircleAvatar(
-            radius: 30,
-            backgroundColor: Colors.grey,
-            child: Icon(
-              Icons.person,
-              size: 40,
-              color: Colors.white,
-            ),
-          ),
-        ),
-        Positioned(
-          right: 0,
-          bottom: 0,
-          child: Container(
-            padding: const EdgeInsets.all(2),
-            decoration: BoxDecoration(
-              color: Colors.teal,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: const Icon(
-              Icons.edit,
-              size: 16,
-              color: Colors.white,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
 class BorderedMenuListItem extends StatelessWidget {
   final String title;
   final String subtitle;
   final Color iconColor;
+  final VoidCallback onTap;
 
   const BorderedMenuListItem({
     super.key,
     required this.title,
     required this.subtitle,
     required this.iconColor,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey.shade300),
+        border: Border.all(
+          color: AppColors.teal.withOpacity(0.4),
+          width: 1,
+        ),
         borderRadius: BorderRadius.circular(8),
       ),
       child: ListTile(
@@ -171,7 +151,7 @@ class BorderedMenuListItem extends StatelessWidget {
           title,
           style: TextStyle(
             fontSize: 16,
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w700,
             color: iconColor,
           ),
         ),
@@ -182,11 +162,14 @@ class BorderedMenuListItem extends StatelessWidget {
             color: Colors.black54,
           ),
         ),
-        trailing: Icon(
-          Icons.chevron_right,
-          color: iconColor,
+        trailing: SvgPicture.asset(
+          AppIcons.angleRight,
+          colorFilter: const ColorFilter.mode(
+            AppColors.teal,
+            BlendMode.srcIn,
+          ),
         ),
-        onTap: () {},
+        onTap: onTap,
       ),
     );
   }

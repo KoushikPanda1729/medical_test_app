@@ -16,7 +16,7 @@ class PromoSection extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(12),
         child: Image.asset(
-          AppImages.banner3,
+          AppImages.offerBanner,
           fit: BoxFit.cover,
           width: double.infinity,
         ),

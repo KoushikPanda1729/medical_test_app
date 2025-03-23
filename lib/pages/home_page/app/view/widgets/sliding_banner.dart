@@ -14,10 +14,10 @@ class SlidingBanner extends StatefulWidget {
 class _SlidingBannerState extends State<SlidingBanner> {
   final PageController pageController = PageController();
   final List<String> banners = [
-    AppImages.banner3,
-    AppImages.banner3,
-    AppImages.banner3,
-    AppImages.banner3,
+    AppImages.mainBanner,
+    AppImages.mainBanner,
+    AppImages.mainBanner,
+    AppImages.mainBanner,
   ];
 
   @override
