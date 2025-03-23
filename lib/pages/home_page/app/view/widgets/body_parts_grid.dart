@@ -12,12 +12,12 @@ class BodyPartsGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Map<String, String>> categoryData = [
-      {"icon": AppImages.diabetes, "text": "Heart"},
-      {"icon": AppImages.diabetes, "text": "Kidney"},
-      {"icon": AppImages.diabetes, "text": "Liver"},
-      {"icon": AppImages.diabetes, "text": "Thyroid"},
-      {"icon": AppImages.diabetes, "text": "Bladder"},
-      {"icon": AppImages.diabetes, "text": "Bladder"},
+      {"icon": AppImages.heart, "text": "Heart"},
+      {"icon": AppImages.kidney, "text": "Kidney"},
+      {"icon": AppImages.humanLiver, "text": "Liver"},
+      {"icon": AppImages.thyroid, "text": "Thyroid"},
+      {"icon": AppImages.bladder, "text": "Bladder"},
+      {"icon": AppImages.bladder, "text": "Bladder"},
     ];
 
     return Container(

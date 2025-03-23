@@ -13,11 +13,11 @@ class CategoryScroll extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Map<String, String>> categoryData = [
       {"icon": AppImages.diabetes, "text": "Diabetes"},
-      {"icon": AppImages.diabetes, "text": "Heart Disease"},
-      {"icon": AppImages.diabetes, "text": "Cancer"},
-      {"icon": AppImages.diabetes, "text": "Kidney Disease"},
-      {"icon": AppImages.diabetes, "text": "Lung Disease"},
-      {"icon": AppImages.diabetes, "text": "Liver Disease"},
+      {"icon": AppImages.thermometer, "text": "Fever"},
+      {"icon": AppImages.hiv, "text": "Infection"},
+      {"icon": AppImages.brain, "text": "Fatigue"},
+      {"icon": AppImages.vomiting, "text": "Nausea"},
+      {"icon": AppImages.hiv, "text": "Infection"},
     ];
 
     return Container(

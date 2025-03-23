@@ -120,7 +120,7 @@ class LoginScreen extends StatelessWidget {
               SolidButtonWidget(
                 label: 'Continue',
                 onPressed: () {
-                  context.push("/");
+                  context.go("/");
                 },
               ),
 

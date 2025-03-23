@@ -78,8 +78,12 @@ class BookingDetailsScreen extends StatelessWidget {
                               "Online Report within 1 Day",
                             ],
                             price: "₹1399",
-                            onAddToCart: () {},
-                            onBookNow: () {},
+                            onAddToCart: () {
+                              context.push("/checkout");
+                            },
+                            onBookNow: () {
+                              context.push("/checkout");
+                            },
                           )
                         ],
                       ),
@@ -99,15 +103,15 @@ class BookingDetailsScreen extends StatelessWidget {
                       children: [
                         FeatureIconCard(
                           text: "NABL, CAP, UKAS",
-                          icon: AppIcons.certifiedLogo,
+                          icon: AppImages.certifiedLogo,
                         ),
                         FeatureIconCard(
                           text: "NABL, CAP, UKAS",
-                          icon: AppIcons.agentsLogo,
+                          icon: AppImages.agentsLogo,
                         ),
                         FeatureIconCard(
                           text: "Guaranteed Precision",
-                          icon: AppIcons.precisionLogo,
+                          icon: AppImages.precisionLogo,
                         ),
                       ],
                     ),

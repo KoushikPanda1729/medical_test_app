@@ -32,12 +32,11 @@ class FeatureIconCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.asset(
+          Image.asset(
             icon,
             width: 51,
             height: 51,
-            colorFilter:
-                const ColorFilter.mode(AppColors.teal, BlendMode.srcIn),
+            color: AppColors.teal,
           ),
           const SizedBox(height: 4),
           Text(

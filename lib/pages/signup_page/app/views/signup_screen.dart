@@ -99,7 +99,7 @@ class SignupScreen extends StatelessWidget {
                     SolidButtonWidget(
                       label: "Click Here",
                       onPressed: () {
-                        context.push("/");
+                        context.go("/");
                       },
                     ),
                   ],

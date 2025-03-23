@@ -28,10 +28,17 @@ class HealthCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              icon,
-              width: 30,
-              height: 30,
+            Container(
+              padding: const EdgeInsets.all(7),
+              decoration: BoxDecoration(
+                border: Border.all(color: AppColors.lightTeal, width: 1),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Image.asset(
+                icon,
+                width: 17,
+                height: 17,
+              ),
             ),
             const SizedBox(height: 5),
             // Text with overflow and max width
@@ -42,9 +49,9 @@ class HealthCard extends StatelessWidget {
                 height: 1,
                 fontWeight: FontWeight.w500,
               ),
-              overflow: TextOverflow.ellipsis, // Truncates text with '...'
-              maxLines: 1, // Ensures text stays on one line
-              softWrap: false, // Prevents text from wrapping
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              softWrap: false,
             ),
           ],
         ),
