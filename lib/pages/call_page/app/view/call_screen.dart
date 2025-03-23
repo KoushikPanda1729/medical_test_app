@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:medical_test_app/commons/components/buttons/app/floating_button__widget.dart';
+import 'package:medical_test_app/commons/components/buttons/app/outline_button_widget.dart';
+import 'package:medical_test_app/commons/components/buttons/app/solid_button_widget.dart';
 import 'package:medical_test_app/commons/components/navigation_bar/app/view/navigation_bar.dart';
+import 'package:medical_test_app/commons/components/profile_avatar/app/view/profile_avatar.dart';
 import 'package:medical_test_app/commons/constants/app_colors.dart';
 import 'package:medical_test_app/commons/constants/app_icons.dart';
+import 'package:medical_test_app/commons/constants/app_images.dart';
 
 class CallScreen extends StatelessWidget {
   const CallScreen({super.key});
@@ -60,14 +64,15 @@ class CallScreen extends StatelessWidget {
           Center(
             child: Column(
               children: [
-                CircleAvatar(
-                  radius: 50,
-                  backgroundColor: Colors.blue.shade100,
-                  // Replace with actual asset
+                ProfileAvatar(
+                  imagePath: AppImages.profilePicture,
+                  onTap: () {},
+                  isEditingIcon: false,
+                  size: 80,
                 ),
                 const SizedBox(height: 12),
                 const Text(
-                  "John Doe",
+                  "Dr. Reddy",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -87,42 +92,27 @@ class CallScreen extends StatelessWidget {
 
           // Call and Chat Buttons
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 40),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               children: [
-                ElevatedButton.icon(
-                  onPressed: () {
-                    // Add call functionality
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.teal,
-                    minimumSize: const Size(double.infinity, 50),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  icon: const Icon(Icons.call, color: Colors.white),
-                  label: const Text(
-                    "Call Support",
-                    style: TextStyle(fontSize: 16, color: Colors.white),
-                  ),
+                SolidButtonWidget(
+                  label: "Call Support",
+                  onPressed: () {},
+                  isLeadingIcon: true,
+                  iconPath: AppIcons.call,
+                  isCircle: true,
                 ),
                 const SizedBox(height: 16),
-                OutlinedButton.icon(
-                  onPressed: () {
-                    // Add chat functionality
-                  },
-                  style: OutlinedButton.styleFrom(
-                    side: const BorderSide(color: AppColors.teal),
-                    minimumSize: const Size(double.infinity, 50),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  icon: const Icon(Icons.chat, color: AppColors.teal),
-                  label: const Text(
-                    "Chat with Support",
-                    style: TextStyle(fontSize: 16, color: AppColors.teal),
+                SizedBox(
+                  height: 55,
+                  child: OutlineButtonWidget(
+                    label: "Chat with Support",
+                    onPressed: () {},
+                    isLeadingIcon: true,
+                    iconPath: AppIcons.chat,
+                    labelColor: AppColors.teal,
+                    borderColor: AppColors.teal,
+                    isCircle: true,
                   ),
                 ),
               ],
@@ -142,6 +132,7 @@ class CallScreen extends StatelessWidget {
                   fontSize: 16,
                   color: AppColors.teal,
                   decoration: TextDecoration.underline,
+                  decorationColor: AppColors.teal,
                 ),
               ),
             ),

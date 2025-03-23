@@ -37,4 +37,6 @@ class AppIcons {
   static const String filter = 'assets/icons/filter.svg';
   static const String download = 'assets/icons/download.svg';
   static const String camera = 'assets/icons/camera.svg';
+  static const String call = 'assets/icons/call.svg';
+  static const String chat = 'assets/icons/chat.svg';
 }
