@@ -12,7 +12,6 @@ class NumericTextfieldWidget extends BaseTextfieldWidget {
   final String? leadingIconPath;
   final double? leadingIconSize;
   final String? trailingIconPath;
-  final bool borderNone;
 
   const NumericTextfieldWidget({
     super.key,
@@ -27,8 +26,8 @@ class NumericTextfieldWidget extends BaseTextfieldWidget {
     super.focusNode,
     super.labelText,
     required super.onTextChanged,
-    this.borderNone = false,
-  }) : super(borderNone: borderNone);
+    super.borderNone = false,
+  });
 
   @override
   NumericTextfieldWidgetState createState() => NumericTextfieldWidgetState();

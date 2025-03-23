@@ -11,10 +11,10 @@ class TimePickerWidget extends StatefulWidget {
   const TimePickerWidget({super.key});
 
   @override
-  _TimePickerWidgetState createState() => _TimePickerWidgetState();
+  TimePickerWidgetState createState() => TimePickerWidgetState();
 }
 
-class _TimePickerWidgetState extends State<TimePickerWidget> {
+class TimePickerWidgetState extends State<TimePickerWidget> {
   final TextEditingController _timeController = TextEditingController();
   final DateFormat _timeFormat = DateFormat('hh:mm a');
   TimeOfDay? _selectedTime;

@@ -246,16 +246,14 @@ class AddMemberAndEditProfile extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
-          boxShadow: true
-              ? [
-                  const BoxShadow(
-                    color: Color.fromRGBO(211, 211, 211, 0.7),
-                    blurRadius: 1,
-                    spreadRadius: 0.7,
-                    offset: Offset(0, 0),
-                  ),
-                ]
-              : [],
+          boxShadow: const [
+            BoxShadow(
+              color: Color.fromRGBO(211, 211, 211, 0.7),
+              blurRadius: 1,
+              spreadRadius: 0.7,
+              offset: Offset(0, 0),
+            ),
+          ],
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
