@@ -84,7 +84,7 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const PaymentSuccessfulScreen(),
     ),
     GoRoute(
-      path: '/book-test',
+      path: '/book_test',
       builder: (context, state) => const BookTest(),
     ),
 

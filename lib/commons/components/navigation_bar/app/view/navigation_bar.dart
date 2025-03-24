@@ -57,7 +57,7 @@ class NavBar extends StatelessWidget {
                       ),
                       FloatingButton(
                         onPressed: () {
-                          context.push("/book-test");
+                          context.push("/book_test");
                         },
                         iconPath: AppIcons.search,
                         backgroundColor: AppColors.white,

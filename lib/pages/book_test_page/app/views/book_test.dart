@@ -86,52 +86,50 @@ class BookTest extends StatelessWidget {
           const SizedBox(height: 17),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SearchBarWidget(
-                    onChanged: (value) {},
-                  ),
-                  const SizedBox(height: 17),
-                  Wrap(
-                    spacing: 8,
-                    runSpacing: 8,
-                    children: [
-                      PillTagChip(
-                        label: "Complete Blood Count",
-                        onRemove: () {
-                          // Handle remove action
-                        },
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SearchBarWidget(
+                  onChanged: (value) {},
+                ),
+                const SizedBox(height: 17),
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: [
+                    PillTagChip(
+                      label: "Complete Blood Count",
+                      onRemove: () {
+                        // Handle remove action
+                      },
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 15),
+                FilterSwitchWidget(
+                  isSwitched: true,
+                  onToggle: (value) {},
+                  onFilterPressed: () {
+                    openCustomBottomSheet(
+                      context: context,
+                      child: BookTestFilter(
+                        categories: const [
+                          "ABO Incompatibility",
+                          "Acid Base Imbalance",
+                          "leukemia",
+                          "leukemia",
+                          "ABO Incompatibility",
+                          "Acid Base Imbalance",
+                          "ABO Incompatibility",
+                          "Acid Base Imbalance",
+                          "leukemia",
+                        ],
+                        onApply: (selected) {},
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: 15),
-                  FilterSwitchWidget(
-                    isSwitched: true,
-                    onToggle: (value) {},
-                    onFilterPressed: () {
-                      openCustomBottomSheet(
-                        context: context,
-                        child: BookTestFilter(
-                          categories: const [
-                            "ABO Incompatibility",
-                            "Acid Base Imbalance",
-                            "leukemia",
-                            "leukemia",
-                            "ABO Incompatibility",
-                            "Acid Base Imbalance",
-                            "ABO Incompatibility",
-                            "Acid Base Imbalance",
-                            "leukemia",
-                          ],
-                          onApply: (selected) {},
-                        ),
-                      );
-                    },
-                  ),
-                ],
-              ),
+                    );
+                  },
+                ),
+              ],
             ),
           ),
           const SizedBox(height: 15),

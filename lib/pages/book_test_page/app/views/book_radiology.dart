@@ -60,37 +60,35 @@ class BookRadiology extends StatelessWidget {
           const SizedBox(height: 17),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Expanded(
-              child: Column(
-                children: [
-                  SearchBarWidget(
-                    onChanged: (value) {},
-                  ),
-                  const SizedBox(height: 8),
-                  FilterSwitchWidget(
-                    isSwitched: true,
-                    onToggle: (value) {},
-                    onFilterPressed: () {
-                      openCustomBottomSheet(
-                        context: context,
-                        child: BookTestFilter(
-                          categories: const [
-                            "BMD",
-                            "Cardiology",
-                            "CT Scan",
-                            "ENT",
-                            "Neurology",
-                            "Pulmonology",
-                            "Ultrasound",
-                            "X-Ray"
-                          ],
-                          onApply: (selected) {},
-                        ),
-                      );
-                    },
-                  ),
-                ],
-              ),
+            child: Column(
+              children: [
+                SearchBarWidget(
+                  onChanged: (value) {},
+                ),
+                const SizedBox(height: 8),
+                FilterSwitchWidget(
+                  isSwitched: true,
+                  onToggle: (value) {},
+                  onFilterPressed: () {
+                    openCustomBottomSheet(
+                      context: context,
+                      child: BookTestFilter(
+                        categories: const [
+                          "BMD",
+                          "Cardiology",
+                          "CT Scan",
+                          "ENT",
+                          "Neurology",
+                          "Pulmonology",
+                          "Ultrasound",
+                          "X-Ray"
+                        ],
+                        onApply: (selected) {},
+                      ),
+                    );
+                  },
+                ),
+              ],
             ),
           ),
           const SizedBox(height: 15),
