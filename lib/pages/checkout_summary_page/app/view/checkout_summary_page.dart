@@ -41,7 +41,7 @@ class CartSummaryStep extends ConsumerWidget {
               child: OutlineButtonWidget(
                 label: "Add More Test",
                 onPressed: () {
-                  context.push("/book-test");
+                  context.push("/book_test");
                 },
                 isLeadingIcon: true,
                 iconPath: AppIcons.plusSmall,
