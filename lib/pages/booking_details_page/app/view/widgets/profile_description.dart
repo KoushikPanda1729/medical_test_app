@@ -39,7 +39,7 @@ class ProfileDescription extends StatelessWidget {
         const SizedBox(height: 10),
         Text(
           description,
-          style: const TextStyle(fontSize: 16, color: Colors.black87),
+          style: const TextStyle(fontSize: 12, color: Colors.black87),
         ),
       ],
     );
