@@ -39,9 +39,9 @@ class CategoryChips extends StatelessWidget {
                 child: Text(
                   category,
                   style: TextStyle(
-                    color: isSelected ? AppColors.black : AppColors.teal,
-                    fontWeight: FontWeight.w500,
-                  ),
+                      color: isSelected ? AppColors.black : AppColors.teal,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 10),
                 ),
               ),
             );

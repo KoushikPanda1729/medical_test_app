@@ -48,8 +48,8 @@ class FilterSwitchWidget extends StatelessWidget {
             const Text(
               'Include Packages',
               style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
+                fontSize: 12,
+                fontWeight: FontWeight.w800,
                 color: Color(0xFF727272),
               ),
             ),
@@ -62,8 +62,8 @@ class FilterSwitchWidget extends StatelessWidget {
               const Text(
                 'Filter',
                 style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
                   color: Color(0xFF727272),
                 ),
               ),

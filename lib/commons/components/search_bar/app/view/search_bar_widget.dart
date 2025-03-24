@@ -36,7 +36,12 @@ class SearchBarWidget extends StatelessWidget {
           onChanged: onChanged, // Calls the function when text changes
           decoration: InputDecoration(
             hintText: hintText,
-            hintStyle: const TextStyle(color: Colors.teal),
+            hintStyle: const TextStyle(
+              color: Colors.teal,
+              fontSize: 12,
+              fontWeight: FontWeight.w600,
+              fontFamily: "Mulish",
+            ),
             border: InputBorder.none,
             suffixIcon: SizedBox(
               width: 16,
@@ -49,6 +54,8 @@ class SearchBarWidget extends StatelessWidget {
                     AppColors.teal,
                     BlendMode.srcIn,
                   ),
+                  width: 16,
+                  height: 16,
                 ),
               ),
             ),

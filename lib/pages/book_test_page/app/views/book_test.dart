@@ -183,8 +183,8 @@ class PillTagChip extends StatelessWidget {
           Text(
             label,
             style: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
+              fontSize: 10,
+              fontWeight: FontWeight.w600,
               color: Colors.black, // Black text color
             ),
           ),
