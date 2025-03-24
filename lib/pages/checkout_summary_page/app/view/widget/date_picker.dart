@@ -43,7 +43,12 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
         children: [
           const Text(
             "Select Date",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              fontFamily: "Mulish",
+              color: Colors.black87,
+            ),
           ),
           const SizedBox(height: 10),
           StatefulBuilder(

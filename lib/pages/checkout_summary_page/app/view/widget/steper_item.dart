@@ -42,9 +42,10 @@ class StepperItem extends StatelessWidget {
         Text(
           label,
           style: TextStyle(
-            fontSize: 12,
+            fontSize: 10,
+            fontFamily: "Mulish",
             color: isActive ? Colors.teal : Colors.grey,
-            fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
+            fontWeight: isActive ? FontWeight.w400 : FontWeight.w400,
           ),
         ),
       ],

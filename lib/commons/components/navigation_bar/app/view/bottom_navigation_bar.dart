@@ -1,6 +1,5 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:medical_test_app/commons/constants/app_colors.dart';
 import 'package:medical_test_app/commons/constants/app_icons.dart';
 
@@ -16,33 +15,58 @@ class BottomNavigationBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CurvedNavigationBar(
-      backgroundColor: Colors.white,
-      color: AppColors.teal,
-      animationDuration: const Duration(milliseconds: 200),
-      height: 75.0,
-      index: activeIndex,
-      onTap: (index) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 22),
+      decoration: const BoxDecoration(
+        color: Colors.white,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          _buildNavItem(0, AppIcons.homeButton, "Home"),
+          _buildNavItem(1, AppIcons.needHelpButton, "Need Help"),
+          _buildNavItem(2, AppIcons.callButton, "Call"),
+          _buildNavItem(3, AppIcons.trackButton, "Track"),
+          _buildNavItem(4, AppIcons.userButton, "Account"),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildNavItem(int index, String icon, String label) {
+    final bool isActive = index == activeIndex;
+
+    return GestureDetector(
+      onTap: () {
         if (onItemTapped != null) {
           onItemTapped!(index);
         }
       },
-      items: [
-        _buildNavItem(AppIcons.homeButton),
-        _buildNavItem(AppIcons.needHelpButton),
-        _buildNavItem(AppIcons.callButton),
-        _buildNavItem(AppIcons.trackButton),
-        _buildNavItem(AppIcons.userButton),
-      ],
-    );
-  }
-
-  Widget _buildNavItem(String icon) {
-    return SvgPicture.asset(
-      icon,
-      height: 25,
-      width: 25,
-      colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+      child: Column(
+        children: [
+          SvgPicture.asset(
+            icon,
+            height: 25,
+            width: 25,
+            colorFilter: isActive
+                ? const ColorFilter.mode(AppColors.teal, BlendMode.srcIn)
+                : ColorFilter.mode(
+                    AppColors.black.withOpacity(0.4), BlendMode.srcIn),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            label,
+            style: TextStyle(
+              color:
+                  isActive ? AppColors.teal : AppColors.black.withOpacity(0.4),
+              fontSize: 10,
+              height: 1,
+              fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

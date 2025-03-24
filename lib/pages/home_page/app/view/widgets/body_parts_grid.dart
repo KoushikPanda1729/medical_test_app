@@ -34,6 +34,7 @@ class BodyPartsGrid extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
+                    fontFamily: 'Mulish',
                     color: Colors.black,
                   ),
                 ),
@@ -43,6 +44,7 @@ class BodyPartsGrid extends StatelessWidget {
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
                     color: AppColors.teal,
+                    fontFamily: 'Mulish',
                   ),
                 ),
               ],

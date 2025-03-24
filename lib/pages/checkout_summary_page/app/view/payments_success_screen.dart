@@ -46,8 +46,9 @@ class PaymentSuccessfulScreen extends StatelessWidget {
                 const Text(
                   "Payment Successful !",
                   style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: "Mulish",
                     color: Colors.black87,
                   ),
                 ),
@@ -55,7 +56,12 @@ class PaymentSuccessfulScreen extends StatelessWidget {
                 const Text(
                   "Your payment is successful. A receipt has been sent to your email. Thank You for Choosing Reddys!",
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 14, color: Colors.grey),
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "Mulish",
+                    color: Colors.grey,
+                  ),
                 ),
                 const SizedBox(height: 20),
                 ElevatedButton.icon(
@@ -79,7 +85,12 @@ class PaymentSuccessfulScreen extends StatelessWidget {
                   ),
                   label: const Text(
                     "Back to Home",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: "Mulish",
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ],

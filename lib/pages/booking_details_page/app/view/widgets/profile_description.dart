@@ -21,7 +21,7 @@ class ProfileDescription extends StatelessWidget {
                 text: "Profile ",
                 style: TextStyle(
                   fontSize: 16,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w600,
                   color: Colors.black,
                 ),
               ),
@@ -29,7 +29,7 @@ class ProfileDescription extends StatelessWidget {
                 text: "Description",
                 style: TextStyle(
                   fontSize: 16,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w600,
                   color: AppColors.teal,
                 ),
               ),
@@ -39,7 +39,12 @@ class ProfileDescription extends StatelessWidget {
         const SizedBox(height: 10),
         Text(
           description,
-          style: const TextStyle(fontSize: 12, color: Colors.black87),
+          style: const TextStyle(
+            fontSize: 12,
+            color: Colors.black87,
+            fontWeight: FontWeight.w600,
+            fontFamily: "Mulish",
+          ),
         ),
       ],
     );

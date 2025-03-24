@@ -22,8 +22,8 @@ class HealthPackageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 12),
-      width: 172,
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 12),
+      width: 171,
       decoration: BoxDecoration(
         color: AppColors.lightTeal.withOpacity(0.4),
         borderRadius: BorderRadius.circular(12),
@@ -37,11 +37,12 @@ class HealthPackageCard extends StatelessWidget {
               Text(
                 title,
                 style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 12,
+                  fontFamily: 'Mulish',
+                  fontWeight: FontWeight.w700,
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 10),
               Row(
                 children: [
                   Container(
@@ -60,10 +61,17 @@ class HealthPackageCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 8),
-                  Text("$numberOfTests Tests"),
+                  Text(
+                    "$numberOfTests Tests",
+                    style: const TextStyle(
+                      fontSize: 9,
+                      fontFamily: 'Mulish',
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 ],
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 34),
               GestureDetector(
                 onTap: () {
                   // Implement "Know More" functionality
@@ -74,18 +82,21 @@ class HealthPackageCard extends StatelessWidget {
                     color: AppColors.teal,
                     fontSize: 12,
                     height: 1,
+                    fontFamily: 'Mulish',
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 4.3),
               Text(
                 "₹$amount",
                 style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Mulish',
                 ),
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 7.5),
             ],
           ),
           SizedBox(

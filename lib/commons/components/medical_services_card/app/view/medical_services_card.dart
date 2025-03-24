@@ -28,13 +28,13 @@ class MedicalServicesCard extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SizedBox(
-              width: 80,
+            Expanded(
               child: Text(
                 title,
                 style: const TextStyle(
                   fontSize: 14,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Mulish',
                   color: Colors.black,
                 ),
                 overflow: TextOverflow.ellipsis,
@@ -43,8 +43,8 @@ class MedicalServicesCard extends StatelessWidget {
             ),
             SvgPicture.asset(
               iconPath,
-              height: 24,
-              width: 24,
+              height: 22,
+              width: 22,
               colorFilter: ColorFilter.mode(
                 AppColors.black.withOpacity(0.5),
                 BlendMode.srcIn,

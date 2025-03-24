@@ -23,12 +23,22 @@ class AddressTile extends StatelessWidget {
               children: [
                 Text(
                   "Address 1",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: "Mulish",
+                    color: Colors.black87,
+                  ),
                 ),
                 SizedBox(height: 2),
                 Text(
                   "Q11M4+R89, Talaswar, Jharkhand 825311",
-                  style: TextStyle(fontSize: 14, color: Colors.grey),
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "Mulish",
+                    color: Colors.grey,
+                  ),
                 ),
               ],
             ),

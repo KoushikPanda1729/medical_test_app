@@ -32,7 +32,6 @@ class OutlineButtonWidget extends BaseButtonWidget {
     return GestureDetector(
       onTap: buttonEntity.isEnabled ? onPressed : null,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
         decoration: BoxDecoration(
           border: Border.all(
             color: buttonEntity.isEnabled

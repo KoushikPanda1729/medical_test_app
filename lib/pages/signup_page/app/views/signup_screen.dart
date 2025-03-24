@@ -45,8 +45,11 @@ class SignupScreen extends StatelessWidget {
                   children: [
                     const Text(
                       "Create your account",
-                      style:
-                          TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 26,
+                        fontWeight: FontWeight.w600,
+                        fontFamily: "Mulish",
+                      ),
                     ),
                     const SizedBox(height: 40),
                     AlphabeticTextfieldWidget(
@@ -117,7 +120,8 @@ class SignupScreen extends StatelessWidget {
       text,
       style: const TextStyle(
         fontSize: 16,
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w400,
+        fontFamily: "Mulish",
         color: Colors.teal,
       ),
     );

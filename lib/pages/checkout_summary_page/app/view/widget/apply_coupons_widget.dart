@@ -36,8 +36,9 @@ class ApplyCouponsWidget extends StatelessWidget {
                 const Text(
                   "Apply Coupons",
                   style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: "Mulish",
                   ),
                 ),
                 const SizedBox(),
@@ -144,7 +145,8 @@ class CouponItem extends StatelessWidget {
                         child: Text(
                           "FLAT Rs. 4800 OFF on Full Body Health Checkup",
                           style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 12,
+                              fontFamily: "Mulish",
                               fontWeight: FontWeight.w500,
                               color: Color(0xFF727272)),
                         ),

@@ -46,7 +46,10 @@ class TestDetailCard extends StatelessWidget {
                 Text(
                   title,
                   style: const TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.bold),
+                    fontSize: 17,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: "Mulish",
+                  ),
                 ),
                 const SizedBox(height: 4),
                 Row(
@@ -64,8 +67,9 @@ class TestDetailCard extends StatelessWidget {
                     Text(
                       subtitle,
                       style: const TextStyle(
-                        fontSize: 14,
+                        fontSize: 13,
                         color: Colors.grey,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                   ],

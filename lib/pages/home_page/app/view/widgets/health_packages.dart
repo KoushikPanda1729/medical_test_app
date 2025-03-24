@@ -11,13 +11,13 @@ class HealthPackages extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> healthPackages = [
       {
-        "title": "Complete Blood Test",
+        "title": "Complete Blood Test Package",
         "icon": AppIcons.dna,
         "numberOfTests": 30,
         "amount": 3999.0,
       },
       {
-        "title": "Advanced Health Check",
+        "title": "Complete Blood Test Package",
         "icon": AppIcons.dna,
         "numberOfTests": 40,
         "amount": 4999.0,
@@ -39,16 +39,20 @@ class HealthPackages extends StatelessWidget {
                     TextSpan(
                       text: "Popular ",
                       style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                        fontFamily: 'Mulish',
+                      ),
                     ),
                     TextSpan(
                       text: "Health Packages",
                       style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          color: AppColors.teal),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.teal,
+                        fontFamily: 'Mulish',
+                      ),
                     ),
                   ],
                 ),
@@ -57,23 +61,34 @@ class HealthPackages extends StatelessWidget {
                 onTap: () => context.push("/popular-health-package"),
                 child: const Text(
                   "See All",
-                  style: TextStyle(color: AppColors.teal),
+                  style: TextStyle(
+                    color: AppColors.teal,
+                    fontFamily: 'Mulish',
+                    fontSize: 11,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               )
             ],
           ),
           const SizedBox(height: 15),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: healthPackages.map((package) {
-              return HealthPackageCard(
-                title: package["title"],
-                icon: package["icon"],
-                numberOfTests: package["numberOfTests"],
-                amount: package["amount"],
-                onBookNow: () => context.push("/booking_details"),
-              );
-            }).toList(),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: healthPackages.map((package) {
+                return Padding(
+                  padding: const EdgeInsets.only(
+                      right: 17), // Add gap of 17px between cards
+                  child: HealthPackageCard(
+                    title: package["title"],
+                    icon: package["icon"],
+                    numberOfTests: package["numberOfTests"],
+                    amount: package["amount"],
+                    onBookNow: () => context.push("/booking_details"),
+                  ),
+                );
+              }).toList(),
+            ),
           ),
         ],
       ),

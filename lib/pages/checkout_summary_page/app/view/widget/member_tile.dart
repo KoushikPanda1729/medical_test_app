@@ -49,15 +49,17 @@ class MemberTile extends StatelessWidget {
                   Text(
                     name,
                     style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: "Mulish",
                       color: Colors.black87,
                     ),
                   ),
                   Text(
                     "$gender, $age Yrs.",
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
                       color: Colors.grey[700],
                     ),
                   ),

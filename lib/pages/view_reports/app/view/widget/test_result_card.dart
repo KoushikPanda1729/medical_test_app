@@ -45,7 +45,11 @@ class TestResultCard extends StatelessWidget {
               // Date
               Text(
                 date,
-                style: const TextStyle(fontSize: 12, color: AppColors.black),
+                style: const TextStyle(
+                  fontSize: 12,
+                  color: AppColors.black,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ],
           ),
@@ -56,8 +60,8 @@ class TestResultCard extends StatelessWidget {
           Text(
             title,
             style: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
+              fontSize: 17,
+              fontWeight: FontWeight.w700,
             ),
           ),
 

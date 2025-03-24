@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:medical_test_app/commons/components/navigation_bar/app/view/bottom_navigation_bar.dart';
-import 'package:medical_test_app/commons/constants/app_colors.dart';
 import 'package:medical_test_app/pages/account_page/app/view/account_screen.dart';
 import 'package:medical_test_app/pages/call_page/app/view/call_screen.dart';
 import 'package:medical_test_app/pages/home_page/app/view/home_screen.dart';
@@ -25,7 +24,7 @@ class MainNavigationScreen extends ConsumerWidget {
         }
       },
       child: Scaffold(
-        backgroundColor: AppColors.white,
+        backgroundColor: Colors.white,
         body: Column(
           children: [
             Expanded(
@@ -44,8 +43,16 @@ class MainNavigationScreen extends ConsumerWidget {
               ),
             ),
             Container(
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.3),
+                    blurRadius: 8,
+                    spreadRadius: 2,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
               ),
               child: BottomNavigationBarWidget(
                 activeIndex: navigationState.currentIndex,

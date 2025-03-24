@@ -17,7 +17,7 @@ class PromoSection extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         child: Image.asset(
           AppImages.offerBanner,
-          fit: BoxFit.cover,
+          fit: BoxFit.fill,
           width: double.infinity,
         ),
       ),

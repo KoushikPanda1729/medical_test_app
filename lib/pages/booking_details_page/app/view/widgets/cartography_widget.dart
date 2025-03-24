@@ -30,10 +30,21 @@ class CartographySection extends StatelessWidget {
                     color: Colors.black,
                   ),
                   children: [
-                    TextSpan(text: "Test(s) "),
+                    TextSpan(
+                      text: "Test(s) ",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: "Mulish"),
+                    ),
                     TextSpan(
                       text: "Included",
-                      style: TextStyle(color: Colors.teal), // Teal color
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.teal,
+                        fontFamily: "Mulish",
+                      ), // Teal color
                     ),
                   ],
                 ),
@@ -42,8 +53,9 @@ class CartographySection extends StatelessWidget {
                 "(${tests.length})",
                 style: const TextStyle(
                   fontSize: 16,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w600,
                   color: Colors.teal, // Teal color
+                  fontFamily: "Mulish",
                 ),
               ),
             ],
@@ -59,7 +71,11 @@ class CartographySection extends StatelessWidget {
                   ListTile(
                     title: Text(
                       test,
-                      style: const TextStyle(fontSize: 14),
+                      style: const TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                        fontFamily: "Mulish",
+                      ),
                     ),
                     trailing: const Icon(
                       Icons.keyboard_arrow_down,

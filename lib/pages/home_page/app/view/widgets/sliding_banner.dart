@@ -34,7 +34,7 @@ class SlidingBanner extends ConsumerWidget {
                     borderRadius: BorderRadius.circular(12),
                     child: Image.asset(
                       bannerState.banners[index],
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                       width: double.infinity,
                     ),
                   ),

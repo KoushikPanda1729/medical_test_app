@@ -54,8 +54,8 @@ class AccountScreen extends StatelessWidget {
                           Text(
                             'Asha Yadav',
                             style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                              fontSize: 22,
+                              fontWeight: FontWeight.w600,
                               color: Colors.black87,
                             ),
                           ),
@@ -65,6 +65,7 @@ class AccountScreen extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 12,
                               color: Colors.black54,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
                         ],
@@ -160,6 +161,7 @@ class BorderedMenuListItem extends StatelessWidget {
           subtitle,
           style: const TextStyle(
             fontSize: 12,
+            fontWeight: FontWeight.w400,
             color: Colors.black54,
           ),
         ),

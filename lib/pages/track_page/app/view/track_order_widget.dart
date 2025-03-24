@@ -67,7 +67,11 @@ class TrackOrderWidget extends StatelessWidget {
           const Center(
             child: Text(
               "Track Order",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                fontFamily: "Mulish",
+              ),
             ),
           ),
           const SizedBox(height: 16),
@@ -75,8 +79,13 @@ class TrackOrderWidget extends StatelessWidget {
           // Order ID
           Container(
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: const Text("Order ID: 12345",
-                  style: TextStyle(fontSize: 14))),
+              child: const Text(
+                "Order ID: 12345",
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+              )),
 
           Expanded(
             child: Container(
@@ -156,11 +165,21 @@ class TimelineStepWidget extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(title,
-                style:
-                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-            Text(date,
-                style: const TextStyle(fontSize: 14, color: Color(0XFF727272))),
+            Text(
+              title,
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            Text(
+              date,
+              style: const TextStyle(
+                fontSize: 10,
+                color: Color(0XFF727272),
+                fontWeight: FontWeight.w500,
+              ),
+            ),
           ],
         ),
       ],

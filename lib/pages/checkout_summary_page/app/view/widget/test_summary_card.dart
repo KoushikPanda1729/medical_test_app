@@ -42,7 +42,8 @@ class TestSummaryCard extends StatelessWidget {
               Text(
                 testName,
                 style: const TextStyle(
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: "Mulish",
                   fontSize: 17,
                 ),
               ),
@@ -65,7 +66,8 @@ class TestSummaryCard extends StatelessWidget {
             price,
             style: const TextStyle(
               color: Colors.teal,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w600,
+              fontFamily: "Mulish",
               fontSize: 16,
             ),
           ),

@@ -35,7 +35,8 @@ class ScheduleTestStep extends ConsumerWidget {
                 "Choose Address",
                 style: TextStyle(
                   fontSize: 16,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: "Mulish",
                   color: Colors.black87,
                 ),
               ),

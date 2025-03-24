@@ -67,6 +67,11 @@ class TestFeatureCard extends StatelessWidget {
                               child: Text(
                                 features[index],
                                 overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w600,
+                                  fontFamily: "Muilsh",
+                                ),
                               ),
                             ),
                           ],
@@ -100,6 +105,11 @@ class TestFeatureCard extends StatelessWidget {
                               child: Text(
                                 features[(features.length / 2).ceil() + index],
                                 overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w600,
+                                  fontFamily: "Muilsh",
+                                ),
                               ),
                             ),
                           ],
@@ -129,8 +139,9 @@ class TestFeatureCard extends StatelessWidget {
                   price,
                   style: const TextStyle(
                     fontSize: 24,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w700,
                     color: Colors.white,
+                    fontFamily: "Mulish",
                   ),
                 ),
                 Row(

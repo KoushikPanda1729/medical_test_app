@@ -32,7 +32,7 @@ class SolidButtonWidget extends BaseButtonWidget {
     return GestureDetector(
       onTap: buttonEntity.isEnabled ? onPressed : null,
       child: Container(
-        height: 56.0,
+        height: 45.0,
         decoration: BoxDecoration(
           color: buttonEntity.isEnabled
               ? backgroundColor

@@ -53,7 +53,7 @@ class BookTestFilter extends StatelessWidget {
                 child: Center(
                   child: Text(
                     'Filter Category',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                   ),
                 ),
               ),
@@ -82,9 +82,9 @@ class BookTestFilter extends StatelessWidget {
                       child: Text(
                         category,
                         style: TextStyle(
-                          color: isSelected ? Colors.white : Colors.teal,
-                          fontWeight: FontWeight.w500,
-                        ),
+                            color: isSelected ? Colors.white : Colors.teal,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 12),
                       ),
                     ),
                   );

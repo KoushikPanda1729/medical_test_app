@@ -106,8 +106,9 @@ class LoginScreen extends StatelessWidget {
                 'Login Or Sign Up',
                 style: textTheme.titleLarge?.copyWith(
                   color: Colors.teal,
-                  fontSize: isTablet ? 22 : 18,
-                  fontWeight: FontWeight.w500,
+                  fontSize: isTablet ? 15 : 15,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Mulish',
                 ),
               ),
               const SizedBox(height: 24),
@@ -135,8 +136,10 @@ class LoginScreen extends StatelessWidget {
                       child: Text(
                         'or sign up with',
                         style: textTheme.bodyMedium?.copyWith(
-                          color: Colors.grey.shade600,
-                          fontSize: isTablet ? 16 : 14,
+                          color: AppColors.black,
+                          fontSize: isTablet ? 15 : 15,
+                          fontWeight: FontWeight.w700,
+                          fontFamily: 'Mulish',
                         ),
                       ),
                     ),

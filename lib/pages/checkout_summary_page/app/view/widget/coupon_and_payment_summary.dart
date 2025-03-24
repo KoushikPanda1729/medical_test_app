@@ -44,7 +44,8 @@ class CouponAndPaymentSummary extends StatelessWidget {
           const Text(
             'Coupon',
             style: TextStyle(
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w600,
+              fontFamily: "Mulish",
               fontSize: 16,
             ),
           ),
@@ -84,7 +85,8 @@ class CouponAndPaymentSummary extends StatelessWidget {
               Text(
                 'Payment',
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: "Mulish",
                   fontSize: 16,
                 ),
               ),
@@ -92,9 +94,10 @@ class CouponAndPaymentSummary extends StatelessWidget {
               Text(
                 'Details',
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: "Mulish",
                   fontSize: 16,
-                  color: Colors.teal,
+                  color: AppColors.teal,
                 ),
               ),
             ],
@@ -136,7 +139,7 @@ class CouponAndPaymentSummary extends StatelessWidget {
           label,
           style: TextStyle(
             fontSize: isBold ? 16 : 12,
-            fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
+            fontWeight: isBold ? FontWeight.w600 : FontWeight.normal,
             color: isDiscount ? Colors.teal : Colors.black,
           ),
         ),
@@ -146,6 +149,7 @@ class CouponAndPaymentSummary extends StatelessWidget {
             fontSize: isBold ? 16 : 12,
             fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
             color: isDiscount ? Colors.teal : Colors.black,
+            fontFamily: "Mulish",
           ),
         ),
       ],

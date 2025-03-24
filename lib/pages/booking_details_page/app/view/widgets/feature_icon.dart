@@ -14,8 +14,11 @@ class FeatureIconCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 108,
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 22),
+      width: 100,
+      padding: const EdgeInsets.symmetric(
+        vertical: 10,
+        horizontal: 7,
+      ),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -44,8 +47,9 @@ class FeatureIconCard extends StatelessWidget {
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(
-              fontSize: 12,
+              fontSize: 11,
               height: 1,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ],

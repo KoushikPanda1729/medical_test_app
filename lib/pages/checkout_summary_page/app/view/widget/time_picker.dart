@@ -60,7 +60,12 @@ class TimePickerWidgetState extends State<TimePickerWidget> {
       children: [
         const Text(
           "Select time",
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            fontFamily: "Mulish",
+            color: Colors.black87,
+          ),
         ),
         const SizedBox(height: 4),
         GestureDetector(
