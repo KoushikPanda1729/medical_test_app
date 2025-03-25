@@ -11,6 +11,8 @@ import 'package:medical_test_app/pages/checkout_summary_page/app/view/widget/add
 import 'package:medical_test_app/pages/login_page/app/views/login_screen.dart';
 import 'package:medical_test_app/pages/main_navigaion/app/view/main_navigation.dart';
 import 'package:medical_test_app/pages/need_help_page/app/view/need_help_screen.dart';
+import 'package:medical_test_app/pages/need_help_page/app/view/widgets/health_score_form.dart';
+import 'package:medical_test_app/pages/need_help_page/app/view/widgets/score_list.dart';
 import 'package:medical_test_app/pages/onboarding_page/app/views/onboarding_screen.dart';
 import 'package:medical_test_app/pages/signup_page/app/views/signup_screen.dart';
 import 'package:medical_test_app/pages/onboarding_page/app/views/splash_screen.dart';
@@ -107,6 +109,14 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/view-reports',
       builder: (context, state) => const ViewReport(),
+    ),
+    GoRoute(
+      path: '/health_score_form',
+      builder: (context, state) => const HealthScoreForm(),
+    ),
+    GoRoute(
+      path: '/score_list',
+      builder: (context, state) => const ScoreListPage(),
     ),
     GoRoute(
       path: '/add_update_address',

@@ -123,6 +123,7 @@ class LoginScreen extends StatelessWidget {
                 onPressed: () {
                   context.go("/");
                 },
+                isCircle: true,
               ),
 
               // Or sign up with divider
@@ -154,6 +155,7 @@ class LoginScreen extends StatelessWidget {
                 onPressed: () {
                   context.push("/signup");
                 },
+                isCircle: true,
               ),
             ],
           ),

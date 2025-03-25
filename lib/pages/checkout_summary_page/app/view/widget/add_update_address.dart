@@ -141,6 +141,7 @@ class AddUpdateAddress extends StatelessWidget {
                 SolidButtonWidget(
                   label: isEditMode ? "Update" : "Add",
                   onPressed: () {},
+                  isCircle: true,
                 ),
               ],
             ),

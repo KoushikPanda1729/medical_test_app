@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
                 BodyPartsGrid(),
                 SizedBox(height: 21),
                 CareCardSection(),
-                SizedBox(height: 21),
+                SizedBox(height: 80),
               ],
             ),
           ),

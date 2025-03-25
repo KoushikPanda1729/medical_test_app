@@ -104,6 +104,7 @@ class SignupScreen extends StatelessWidget {
                       onPressed: () {
                         context.go("/");
                       },
+                      isCircle: true,
                     ),
                   ],
                 ),
