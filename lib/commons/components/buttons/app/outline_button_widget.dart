@@ -32,6 +32,7 @@ class OutlineButtonWidget extends BaseButtonWidget {
     return GestureDetector(
       onTap: buttonEntity.isEnabled ? onPressed : null,
       child: Container(
+        height: 45.0,
         decoration: BoxDecoration(
           border: Border.all(
             color: buttonEntity.isEnabled
@@ -45,18 +46,22 @@ class OutlineButtonWidget extends BaseButtonWidget {
         ),
         child: Center(
           child: FittedBox(
-            child: Row(
-              // mainAxisSize: MainAxisSize.min,
-              children: [
-                if (isLoading)
-                  buildLoadingIndicator()
-                else ...[
-                  if (buttonEntity.isLeadingIcon) buildIcon(),
-                  if (buttonEntity.iconPath != null && buttonEntity.label != '')
-                    const SizedBox(width: 10),
-                  buildLabel(),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              child: Row(
+                // mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (isLoading)
+                    buildLoadingIndicator()
+                  else ...[
+                    if (buttonEntity.isLeadingIcon) buildIcon(),
+                    if (buttonEntity.iconPath != null &&
+                        buttonEntity.label != '')
+                      const SizedBox(width: 10),
+                    buildLabel(),
+                  ],
                 ],
-              ],
+              ),
             ),
           ),
         ),

@@ -130,7 +130,7 @@ abstract class BaseTextfieldWidgetState<T extends BaseTextfieldWidget>
               : OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                   borderSide: const BorderSide(
-                    color: AppColors.unselect,
+                    color: Color(0xFFD1EDEB),
                     width: 1.0,
                   ),
                 ),
@@ -139,7 +139,7 @@ abstract class BaseTextfieldWidgetState<T extends BaseTextfieldWidget>
               : OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                   borderSide: const BorderSide(
-                    color: AppColors.unselect,
+                    color: Color(0xFFD1EDEB),
                     width: 1.0,
                   ),
                 ),
@@ -148,7 +148,7 @@ abstract class BaseTextfieldWidgetState<T extends BaseTextfieldWidget>
               : OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                   borderSide: const BorderSide(
-                    color: AppColors.unselect,
+                    color: Color(0xFFD1EDEB),
                     width: 1.0,
                   ),
                 ),

@@ -24,10 +24,13 @@ class MainNavigationScreen extends ConsumerWidget {
         }
       },
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
-        body: Column(
+        body: Stack(
           children: [
-            Expanded(
+            // Main content area
+            Positioned.fill(
+              bottom: 0,
               child: PageView(
                 controller: navigationState.pageController,
                 onPageChanged: (index) {
@@ -42,23 +45,30 @@ class MainNavigationScreen extends ConsumerWidget {
                 ],
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.3),
-                    blurRadius: 8,
-                    spreadRadius: 2,
-                    offset: const Offset(0, 4),
-                  ),
-                ],
-              ),
-              child: BottomNavigationBarWidget(
-                activeIndex: navigationState.currentIndex,
-                onItemTapped: (index) {
-                  navigationViewModel.changePage(index);
-                },
+
+            // Positioned Bottom Navigation Bar
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.3),
+                      blurRadius: 8,
+                      spreadRadius: 2,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: BottomNavigationBarWidget(
+                  activeIndex: navigationState.currentIndex,
+                  onItemTapped: (index) {
+                    navigationViewModel.changePage(index);
+                  },
+                ),
               ),
             ),
           ],

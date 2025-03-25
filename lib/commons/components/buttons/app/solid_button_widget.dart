@@ -43,18 +43,22 @@ class SolidButtonWidget extends BaseButtonWidget {
         ),
         child: Center(
           child: FittedBox(
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                if (isLoading)
-                  buildLoadingIndicator()
-                else ...[
-                  if (buttonEntity.isLeadingIcon) buildIcon(),
-                  if (buttonEntity.iconPath != null && buttonEntity.label != '')
-                    const SizedBox(width: 10),
-                  buildLabel(),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (isLoading)
+                    buildLoadingIndicator()
+                  else ...[
+                    if (buttonEntity.isLeadingIcon) buildIcon(),
+                    if (buttonEntity.iconPath != null &&
+                        buttonEntity.label != '')
+                      const SizedBox(width: 10),
+                    buildLabel(),
+                  ],
                 ],
-              ],
+              ),
             ),
           ),
         ),

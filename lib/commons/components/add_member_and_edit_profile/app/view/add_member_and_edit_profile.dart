@@ -222,16 +222,19 @@ class AddMemberAndEditProfile extends StatelessWidget {
                     const SizedBox(height: 35),
 
                     // Change button text dynamically
-                    SolidButtonWidget(
-                      label: isEditMode ? "Update" : "Add",
-                      onPressed: () {},
-                    ),
-                    const SizedBox(height: 22),
                   ],
                 ),
               ),
             ),
-          )
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: SolidButtonWidget(
+              label: isEditMode ? "Update" : "Add",
+              onPressed: () {},
+            ),
+          ),
+          const SizedBox(height: 22),
         ],
       ),
     );

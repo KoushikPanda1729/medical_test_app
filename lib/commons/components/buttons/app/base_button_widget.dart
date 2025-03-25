@@ -47,16 +47,13 @@ abstract class BaseButtonWidget extends StatelessWidget {
     final adjustedColor = buttonEntity.labelColor?.withOpacity(labelOpacity) ??
         Colors.black.withOpacity(labelOpacity);
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12.0),
-      child: Text(
-        buttonEntity.label,
-        style: TextStyle(
-          fontFamily: 'Mulish',
-          fontWeight: FontWeight.w500,
-          fontSize: 14,
-          color: adjustedColor,
-        ),
+    return Text(
+      buttonEntity.label,
+      style: TextStyle(
+        fontFamily: 'Mulish',
+        fontWeight: FontWeight.w500,
+        fontSize: 14,
+        color: adjustedColor,
       ),
     );
   }

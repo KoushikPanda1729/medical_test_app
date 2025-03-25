@@ -16,7 +16,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 22),
+      padding: const EdgeInsets.only(bottom: 20),
       decoration: const BoxDecoration(
         color: Colors.white,
       ),
@@ -45,6 +45,16 @@ class BottomNavigationBarWidget extends StatelessWidget {
       },
       child: Column(
         children: [
+          if (isActive)
+            Container(
+              width: 40,
+              height: 3,
+              decoration: BoxDecoration(
+                color: AppColors.teal,
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
+          const SizedBox(height: 4),
           SvgPicture.asset(
             icon,
             height: 25,

@@ -51,20 +51,16 @@ class ScheduleTestStep extends ConsumerWidget {
           margin: const EdgeInsets.only(bottom: 21),
           child: Column(
             children: [
-              SizedBox(
-                width: double.infinity,
-                height: 56,
-                child: OutlineButtonWidget(
-                  label: "Add New Address",
-                  onPressed: () {
-                    context.push("/add_update_address");
-                  },
-                  isLeadingIcon: true,
-                  iconPath: AppIcons.plusSmall,
-                  borderColor: AppColors.teal,
-                  labelColor: AppColors.teal,
-                  isCircle: true,
-                ),
+              OutlineButtonWidget(
+                label: "Add New Address",
+                onPressed: () {
+                  context.push("/add_update_address");
+                },
+                isLeadingIcon: true,
+                iconPath: AppIcons.plusSmall,
+                borderColor: AppColors.teal,
+                labelColor: AppColors.teal,
+                isCircle: true,
               ),
               const SizedBox(height: 10),
               SolidButtonWidget(
