@@ -8,7 +8,11 @@ class AppImages {
   static const String splashScreen = 'assets/images/splash_screen.png';
   static const String test1 = 'assets/images/test_1.png';
   static const String flag = 'assets/images/flag_1.png';
-  static const String mainBanner = 'assets/images/main_banner.jpg';
+  static const String mainBanner1 = 'assets/images/main_banner.jpg';
+
+  static const String mainBanner2 = 'assets/images/main_banner_2.jpg';
+  static const String mainBanner3 = 'assets/images/main_banner_3.jpg';
+  static const String mainBanner4 = 'assets/images/main_banner_4.jpg';
   static const String diabetes = 'assets/images/diabetes.png';
   static const String hiv = 'assets/images/hiv.png';
   static const String brain = 'assets/images/brain.png';
