@@ -123,7 +123,7 @@ class TestPackageCard extends StatelessWidget {
                   width: 92,
                   child: OutlineButtonWidget(
                     label: "Book Now",
-                    onPressed: () {},
+                    onPressed: onBookNowPressed,
                     labelColor: AppColors.white,
                     borderColor: AppColors.white,
                     isCircle: true,

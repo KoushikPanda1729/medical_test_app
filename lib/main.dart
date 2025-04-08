@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:medical_test_app/commons/constants/app_colors.dart';
 import 'package:medical_test_app/commons/router/app_router.dart';
 
 void main() {
@@ -21,6 +22,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routerConfig: router,
       theme: ThemeData(
+        primarySwatch: Colors.teal,
+        // Set the cursor color globally
+        textSelectionTheme: const TextSelectionThemeData(
+          cursorColor: AppColors.teal,
+        ),
         fontFamily: 'Mulish',
       ),
     );

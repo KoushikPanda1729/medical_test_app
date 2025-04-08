@@ -145,8 +145,16 @@ class BookTest extends StatelessWidget {
                     title: testPackages[index]['title'],
                     parameters: testPackages[index]['parameters'],
                     price: testPackages[index]['price'],
-                    onDetailsPressed: () {},
-                    onBookNowPressed: () {},
+                    onDetailsPressed: () {
+                      context.push(
+                        "/booking_details",
+                      );
+                    },
+                    onBookNowPressed: () {
+                      context.push(
+                        "/booking_details",
+                      );
+                    },
                   ),
                 ),
               ),

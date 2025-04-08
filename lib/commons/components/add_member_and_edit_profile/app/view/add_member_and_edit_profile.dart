@@ -58,14 +58,13 @@ class AddMemberAndEditProfile extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    sectionHeader("Personal Details"),
+                    const SizedBox(height: 13),
                     Row(
                       children: [
                         ProfileAvatar(
                           imagePath: AppImages.profilePicture,
-                          isUploadMode:
-                              (isEditMode == true || isEditMode == false)
-                                  ? true
-                                  : false,
+                          isUploadMode: true,
                           onTap: () {},
                         ),
                         const SizedBox(width: 14),
@@ -110,11 +109,15 @@ class AddMemberAndEditProfile extends StatelessWidget {
                     const SizedBox(height: 3),
                     Row(
                       children: [
-                        buildGenderButton("Male", true),
+                        buildGenderButton(
+                            "Male", true, AppColors.teal, AppColors.white),
                         const SizedBox(width: 10),
-                        buildGenderButton("Female", false),
+                        buildGenderButton(
+                            "Female", false, AppColors.white, AppColors.teal),
                       ],
                     ),
+                    const SizedBox(height: 28),
+                    sectionHeader("Vitals"),
                     const SizedBox(height: 15),
                     Row(
                       children: [
@@ -133,6 +136,8 @@ class AddMemberAndEditProfile extends StatelessWidget {
                         ),
                       ],
                     ),
+                    const SizedBox(height: 15),
+                    sectionHeader("Enter Full Address"),
                     const SizedBox(height: 15),
                     AlphaNumericTextfieldWidget(
                       onTextChanged: (value) {},
@@ -220,8 +225,6 @@ class AddMemberAndEditProfile extends StatelessWidget {
                       labelText: "Landmark (optional)",
                     ),
                     const SizedBox(height: 35),
-
-                    // Change button text dynamically
                   ],
                 ),
               ),
@@ -241,14 +244,15 @@ class AddMemberAndEditProfile extends StatelessWidget {
     );
   }
 
-  Widget buildGenderButton(String text, bool male) {
+  Widget buildGenderButton(
+      String text, bool male, Color bgColor, Color iconColor) {
     return GestureDetector(
       onTap: () {},
       child: Container(
         height: 38,
         width: 83,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: bgColor,
           borderRadius: BorderRadius.circular(10),
           boxShadow: const [
             BoxShadow(
@@ -266,16 +270,16 @@ class AddMemberAndEditProfile extends StatelessWidget {
               male ? AppIcons.male : AppIcons.female,
               width: 18,
               height: 18,
-              colorFilter: const ColorFilter.mode(
-                Colors.teal,
+              colorFilter: ColorFilter.mode(
+                iconColor,
                 BlendMode.srcIn,
               ),
             ),
             const SizedBox(width: 4),
             Text(
               text,
-              style: const TextStyle(
-                color: Colors.teal,
+              style: TextStyle(
+                color: iconColor,
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
               ),
@@ -284,5 +288,18 @@ class AddMemberAndEditProfile extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget sectionHeader(String text) {
+    return isEditMode
+        ? Text(
+            text,
+            style: const TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w600,
+              color: AppColors.teal,
+            ),
+          )
+        : const SizedBox.shrink();
   }
 }
