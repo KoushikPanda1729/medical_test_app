@@ -24,12 +24,14 @@ class HealthPackageCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 12),
       width: 171,
+      height: 204,
       decoration: BoxDecoration(
         color: AppColors.lightTeal.withOpacity(0.4),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
