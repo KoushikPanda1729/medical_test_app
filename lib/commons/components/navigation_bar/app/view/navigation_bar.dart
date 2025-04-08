@@ -55,7 +55,9 @@ class NavBar extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       FloatingButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.push("/add_family_member_and_edit_profile");
+                        },
                         iconPath: AppIcons.add,
                         backgroundColor: AppColors.white,
                         iconColor: AppColors.teal,

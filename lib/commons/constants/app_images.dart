@@ -13,6 +13,9 @@ class AppImages {
   static const String mainBanner2 = 'assets/images/main_banner_2.jpg';
   static const String mainBanner3 = 'assets/images/main_banner_3.jpg';
   static const String mainBanner4 = 'assets/images/main_banner_4.jpg';
+  static const String mainBanner5 = 'assets/images/main_banner_5.jpg';
+  static const String mainBanner6 = 'assets/images/main_banner_6.jpg';
+  static const String mainBanner7 = 'assets/images/main_banner_7.jpg';
   static const String diabetes = 'assets/images/diabetes.png';
   static const String hiv = 'assets/images/hiv.png';
   static const String brain = 'assets/images/brain.png';

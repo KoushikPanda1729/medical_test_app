@@ -44,16 +44,18 @@ class BottomNavigationBarWidget extends StatelessWidget {
         }
       },
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          if (isActive)
-            Container(
-              width: 40,
-              height: 3,
-              decoration: BoxDecoration(
-                color: AppColors.teal,
-                borderRadius: BorderRadius.circular(2),
-              ),
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 100),
+            curve: Curves.easeInOut,
+            width: 40,
+            height: 3,
+            decoration: BoxDecoration(
+              color: isActive ? AppColors.teal : Colors.transparent,
+              borderRadius: BorderRadius.circular(2),
             ),
+          ),
           const SizedBox(height: 4),
           SvgPicture.asset(
             icon,
@@ -72,7 +74,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
                   isActive ? AppColors.teal : AppColors.black.withOpacity(0.4),
               fontSize: 10,
               height: 1,
-              fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
+              fontWeight: FontWeight.normal,
             ),
           ),
         ],

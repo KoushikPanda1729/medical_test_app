@@ -11,8 +11,11 @@ class SlidingBannerViewModel extends StateNotifier<SlidingBannerState> {
             banners: [
               AppImages.mainBanner1,
               AppImages.mainBanner2,
-              AppImages.mainBanner3,
-              AppImages.mainBanner4,
+              // AppImages.mainBanner3,
+              // AppImages.mainBanner4,
+              AppImages.mainBanner5,
+              AppImages.mainBanner6,
+              AppImages.mainBanner7,
             ],
           ),
         );
