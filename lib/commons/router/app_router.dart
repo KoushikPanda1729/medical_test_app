@@ -39,8 +39,28 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: '/booking_details',
-      name: "booking_details",
-      builder: (context, state) => const BookingDetailsScreen(),
+      builder: (context, state) {
+        // Extract the test data from the extra parameter
+        final Map<String, dynamic>? testData =
+            state.extra as Map<String, dynamic>?;
+        return BookingDetailsScreen(testData: testData);
+      },
+    ),
+    // Add similar handling for the checkout route
+    // GoRoute(
+    //   path: '/checkout',
+    //   builder: (context, state) {
+    //     final Map<String, dynamic>? testData =
+    //         state.extra as Map<String, dynamic>?;
+    //     return CheckoutPage(
+    //         testData: testData); // You'll need to implement this
+    //   },
+    // ),
+
+    // Unified checkout route - single entry point for the entire checkout flow
+    GoRoute(
+      path: '/checkout',
+      builder: (context, state) => const CheckoutPage(),
     ),
     GoRoute(
       path: '/call',
@@ -75,11 +95,7 @@ final GoRouter router = GoRouter(
       path: '/signup',
       builder: (context, state) => SignupScreen(),
     ),
-    // Unified checkout route - single entry point for the entire checkout flow
-    GoRoute(
-      path: '/checkout',
-      builder: (context, state) => const CheckoutPage(),
-    ),
+
     // Existing routes that remain the same
     GoRoute(
       path: '/payment_success',

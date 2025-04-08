@@ -13,10 +13,40 @@ import 'package:medical_test_app/pages/booking_details_page/app/view/widgets/tes
 import 'package:medical_test_app/pages/booking_details_page/app/view/widgets/test_feature_card.dart';
 
 class BookingDetailsScreen extends StatelessWidget {
-  const BookingDetailsScreen({super.key});
+  final Map<String, dynamic>? testData;
+
+  const BookingDetailsScreen({
+    super.key,
+    this.testData,
+  });
 
   @override
   Widget build(BuildContext context) {
+    // If no data is passed, use default values
+    final data = testData ??
+        {
+          'title': 'Complete Blood Count (CBC)',
+          'parameters': '29 Parameters',
+          'price': 1399,
+          'imagePath': AppImages.test1,
+          'description':
+              'The Complete Blood Count (CBC) test analyzes red blood cells, white blood cells, and platelets, providing vital insights into your health. It helps diagnose anemia, infections, leukemia, and clotting disorders.',
+          'features': [
+            'Total 29 Tests',
+            'Overnight Fasting Required',
+            'For All Genders',
+            'Online Report within 1 Day',
+            'Age Group: 5-99 years',
+            'Sample Collected from Home',
+          ],
+          'tests': [
+            'Haemoglobin (Hb)',
+            'RBC Count',
+            'PCV / Hematocrit',
+            'MCV',
+          ],
+        };
+
     return Scaffold(
       backgroundColor: AppColors.white,
       body: Column(
@@ -43,7 +73,6 @@ class BookingDetailsScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Container with two cards
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
@@ -58,46 +87,35 @@ class BookingDetailsScreen extends StatelessWidget {
                       ),
                       child: Column(
                         children: [
-                          // First Card - Image and Title
-                          const TestDetailCard(
-                            imagePath: AppImages.test1,
-                            title: "Complete Blood Count (CBC)",
-                            subtitle: "29 Parameters",
+                          // Use the passed data for the test detail card
+                          TestDetailCard(
+                            imagePath: data['imagePath'] ?? AppImages.test1,
+                            title: data['title'] ?? 'Test Package',
+                            subtitle: data['parameters'] ?? 'Parameters',
                           ),
                           const SizedBox(
                             height: 12,
                           ),
-                          // Second Card - Features and Buttons
+                          // Use the passed data for features and price
                           TestFeatureCard(
-                            features: const [
-                              "Total 29 Tests",
-                              "Overnight Fasting Required",
-                              "For All Genders",
-                              "Online Report within 1 Day",
-                              "For All Genders",
-                              "Online Report within 1 Day",
-                            ],
-                            price: "₹1399",
+                            features: List<String>.from(data['features'] ?? []),
+                            price: "₹${data['price']}",
                             onAddToCart: () {
-                              context.push("/checkout");
+                              context.push("/checkout", extra: data);
                             },
                             onBookNow: () {
-                              context.push("/checkout");
+                              context.push("/checkout", extra: data);
                             },
                           )
                         ],
                       ),
                     ),
                     const SizedBox(height: 15),
-                    // Profile description
-                    const ProfileDescription(
-                      description:
-                          "The Complete Blood Count (CBC) test analyzes red blood cells, "
-                          "white blood cells, and platelets, providing vital insights into your "
-                          "health. It helps diagnose anemia, infections, leukemia, and clotting disorders.",
+                    // Use passed description
+                    ProfileDescription(
+                      description: data['description'] ?? '',
                     ),
                     const SizedBox(height: 21),
-                    // Features
                     const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -116,18 +134,11 @@ class BookingDetailsScreen extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 18),
-                    // CartographySection
-                    const CartographySection(
-                      tests: [
-                        "Haemoglobin (Hb)",
-                        "RBC Count",
-                        "PCV / Hematocrit",
-                        "MCV",
-                      ],
+                    // Use passed tests
+                    CartographySection(
+                      tests: List<String>.from(data['tests'] ?? []),
                     ),
                     const SizedBox(height: 35),
-
-                    // Bottom Buttons
                   ],
                 ),
               ),
@@ -142,7 +153,7 @@ class BookingDetailsScreen extends StatelessWidget {
                     child: SolidButtonWidget(
                   label: "Add to Cart",
                   onPressed: () {
-                    context.push("/checkout");
+                    context.push("/checkout", extra: data);
                   },
                   backgroundColor: AppColors.orange,
                   isCircle: true,
@@ -152,7 +163,7 @@ class BookingDetailsScreen extends StatelessWidget {
                     child: SolidButtonWidget(
                   label: "Book Now",
                   onPressed: () {
-                    context.push("/checkout");
+                    context.push("/checkout", extra: data);
                   },
                   backgroundColor: AppColors.teal,
                   isCircle: true,

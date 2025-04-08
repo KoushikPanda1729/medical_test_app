@@ -138,7 +138,7 @@ class TestFeatureCard extends StatelessWidget {
                 Text(
                   price,
                   style: const TextStyle(
-                    fontSize: 24,
+                    fontSize: 18,
                     fontWeight: FontWeight.w700,
                     color: Colors.white,
                     fontFamily: "Mulish",
